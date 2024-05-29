@@ -4,7 +4,7 @@ import './Hero.css'
 const Hero = () => {
     return (
         <div className='relative'>
-            <img src='https://bgeek.eu/wp-content/uploads/2021/05/ubisoft-plus_hero_mobile.jpg' className='pt-16 opacity-25 mb-24 mx-auto -z-[100]'></img>
+            <img src='https://bgeek.eu/wp-content/uploads/2021/05/ubisoft-plus_hero_mobile.jpg' className='pt-16 opacity-25 mb-24 mx-auto'></img>
             <div className='text-white absolute top-48 text-7xl left-32'>
                 <p className='hero-title'>Your Gaming Journey</p>
                 <br></br>

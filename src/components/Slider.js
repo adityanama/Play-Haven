@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import SliderCard from './SliderCard'
 
-const Slider = ({GamesData}) => {
+const Slider = ({ GamesData }) => {
 
     const [index, setIndex] = useState(0);
     const n = GamesData.length;
@@ -21,9 +21,15 @@ const Slider = ({GamesData}) => {
     }
 
     return (
-        <div>
-            <h1 className='text-[55px] text-white text-center mb-24'>Featured Games</h1>
-            <SliderCard GameData = {GamesData[index]} ></SliderCard>
+        <div className='relative'>
+            <h1 className='text-[55px] text-white text-center mb-12 heading'>Featured Games</h1>
+            <SliderCard GameData={GamesData[index]} ></SliderCard>
+            <button onClick={()=>rightShiftHandler()}>
+                <img src='https://img.icons8.com/?size=100&id=52524&format=png&color=000000' className=' absolute top-[300px] right-24 cursor-pointer hover:scale-110 duration-100' />
+            </button>
+            <button onClick={()=>leftShiftHandler()}>
+                <img src='https://img.icons8.com/?size=100&id=52523&format=png&color=000000' className=' absolute top-[300px] left-24 cursor-pointer hover:scale-110 duration-100' onClick={() => leftShiftHandler} />
+            </button>
         </div>
     )
 }

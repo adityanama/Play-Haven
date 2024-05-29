@@ -1,8 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
 
-.hero-title{
+.hero-title {
     font-family: "Orbitron", sans-serif;
     font-optical-sizing: auto;
     font-weight: 8\700;
     font-style: normal;
-  }
+}
+
+button {
+    font-family: "Work Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 400;
+}

@@ -3,12 +3,12 @@ import './Navbar.css'
 
 const Navbar = () => {
     return (
-        <div className='text-white pt-2 flex justify-around items-center'>
+        <div className='text-white pt-2 flex justify-around items-center navbar'>
             <div>
                 <img src='/logo.png' width="300px"/>
             </div>
 
-            <div className='flex items-center gap-8 text-2xl'>
+            <div className='flex items-center gap-8 text-[22px]'>
                 <h2>Home</h2>
                 <h2>Shop</h2>
                 <h2>Deals</h2>

@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Slider from './components/Slider';
 import GamesData from './SliderData';
+import Categories from './components/Categories';
 
 function App() {
     return (
@@ -10,6 +11,7 @@ function App() {
             <Navbar></Navbar>
             <Hero></Hero>
             <Slider GamesData = {GamesData}></Slider>
+            <Categories></Categories>
         </div>
     );
 }
