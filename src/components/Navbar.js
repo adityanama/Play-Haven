@@ -3,7 +3,7 @@ import './Navbar.css'
 
 const Navbar = () => {
     return (
-        <div className='text-white pt-2 flex justify-around items-center navbar'>
+        <div className='text-white pt-2 flex justify-around items-center work-font'>
             <div>
                 <img src='/logo.png' width="300px"/>
             </div>

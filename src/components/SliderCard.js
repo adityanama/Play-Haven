@@ -2,15 +2,15 @@ import React from 'react'
 
 const SliderCard = ({ GameData }) => {
     return (
-        <div className='flex mx-auto gap-16 justify-center bg-[rgb(9,9,70)] mb-32 py-12 items-center'>
+        <div className='flex mx-auto gap-16 justify-center bg-[rgb(9,9,70)] mb-24 py-12 items-center work-font'>
             <div>
-                <img src={GameData.img} className='scale-100'></img>
+                <img src={GameData.img} className='scale-110'></img>
             </div>
 
             <div className='text-white flex flex-col w-[610px] gap-2'>
-                <h1 className=' uppercase text-5xl font-bold'>{GameData.title}</h1>
-                <h2 className='text-2xl font-semibold'>{GameData.developer}</h2>
-                <p className='text-lg mt-4'>{GameData.description.substr(0, 350) + "..."}</p>
+                <h1 className='text-5xl font-bold text-yellow-400 underline'>{GameData.title}</h1>
+                <h2 className='text-xl font-semibold'>{GameData.developer}</h2>
+                <p className='text-lg mt-4'>{GameData.description.substr(0, 300) + "..."}</p>
                 <div className='flex items-center -mt-2'>
                     <img src='https://img.icons8.com/?size=100&id=87769&format=png&color=FFFFFF' className=' scale-50 -ml-8' />
                     <h2 className='text-5xl -ml-6 text-green-400 font-semibold'>{GameData.price}</h2>
