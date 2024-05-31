@@ -2,7 +2,7 @@ import React from 'react'
 
 const SliderCard = ({ GameData }) => {
     return (
-        <div className='flex mx-auto gap-16 justify-center slider-bg mb-24 py-12 items-center work-font bg-[#120a52]'>
+        <div className='flex mx-auto gap-16 justify-center slider-bg mb-16 py-12 items-center work-font border-y-[4px] border-indigo-900'>
             <div>
                 <img src={GameData.img} className='rounded-lg'></img>
             </div>
