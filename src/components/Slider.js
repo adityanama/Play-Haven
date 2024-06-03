@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import SliderCard from './SliderCard'
+import GameData from '../GamesData';
 
-const Slider = ({ GamesData }) => {
+const Slider = ({ GameData }) => {
 
     const [index, setIndex] = useState(0);
-    const n = GamesData.length;
+    const n = GameData[0].sliderData.length;
 
     function leftShiftHandler() {
         if (index == 0)
@@ -23,7 +24,7 @@ const Slider = ({ GamesData }) => {
     return (
         <div className='relative'>
             <h1 className='text-[55px] text-white text-center mb-12 heading'>Featured Games</h1>
-            <SliderCard GameData={GamesData[index]} ></SliderCard>
+            <SliderCard GameData={GameData[0].sliderData[index]} ></SliderCard>
             <button onClick={()=>rightShiftHandler()}>
                 <img src='https://img.icons8.com/?size=100&id=52524&format=png&color=000000' className=' absolute top-[300px] right-24 cursor-pointer hover:scale-110 duration-100' />
             </button>
