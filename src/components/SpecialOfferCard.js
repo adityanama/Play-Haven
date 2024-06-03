@@ -5,7 +5,7 @@ const SpecialOffercard = ({ GameData }) => {
         <div className='flex flex-col text-white border-2 border-blue-900 p-4 pb-0 h-[490px] gap-6 w-[320px] justify-evenly rounded-xl hover:scale-110 duration-150 ease-in cursor-pointer'>
             <img src={GameData.img} width="300px"></img>
             <div>
-                <h1 className='text-white text-2xl'>{GameData.title}</h1>
+                <h1 className='text-white text-2xl font-semibold'>{GameData.title}</h1>
                 <div className='flex gap-6 items-center'>
                     <div className='bg-blue-800 px-2 py-2 rounded-xl text-lg'>{`${GameData.discount} % Off `}</div>
                     <div className='flex items-center'>

@@ -5,6 +5,8 @@ import Slider from './components/Slider';
 import Categories from './components/Categories';
 import SpecialOffers from './components/SpecialOffers';
 import GameData from './GamesData';
+import NewRelease from './components/NewRelease';
+import PreOrder from './components/PreOrder';
 
 function App() {
     return (
@@ -14,6 +16,8 @@ function App() {
             <Slider GameData = {GameData}></Slider>
             <Categories></Categories>
             <SpecialOffers></SpecialOffers>
+            <NewRelease></NewRelease>
+            <PreOrder></PreOrder>
         </div>
     );
 }
