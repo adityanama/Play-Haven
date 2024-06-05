@@ -13,7 +13,6 @@ const Navbar = () => {
                 <h2>Shop</h2>
                 <h2>Deals</h2>
                 <h2>New Releases</h2>
-                <h2>Pre Orders</h2>
                 <h2>About Us</h2>
                 <h2>Contact Us</h2>
                 <img src='https://img.icons8.com/?size=100&id=kDqO6kPb3xLj&format=png&color=000000' width="50px"/>

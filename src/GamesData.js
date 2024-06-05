@@ -1,6 +1,3 @@
-import NewRelease from "./components/NewRelease"
-import PreOrder from "./components/PreOrder"
-
 const GameData = [
     {
         sliderData: [
@@ -105,44 +102,6 @@ const GameData = [
                 img: 'https://image.api.playstation.com/vulcan/ap/rnd/202401/0902/8ef9ab648b8b46461778764d6942c44a1c485abd7879e7ce.png',
                 description: 'Experience the thrill of cricket like never before with Cricket 24. With realistic gameplay',
                 price: '3999',
-            },
-            {
-                id:2,
-                title: 'Ghost of Tsushima DIRECTOR’S CUT',
-                developer: 'Visual Concepts',
-                img: 'https://image.api.playstation.com/vulcan/ap/rnd/202106/2322/c16gs6a7lbAYzPf7ZTikbH1c.png?w=440&thumb=false',
-                description: 'Experience the thrill of cricket like never before with Cricket 24. With realistic gameplay',
-                price: '2799',
-            },
-            {
-                id:3,
-                title: `Assassin's Creed® Mirage`,
-                developer: 'Visual Concepts',
-                img: 'https://image.api.playstation.com/vulcan/ap/rnd/202208/1718/phwiQjbJddEg979YucUoP3Vr.png?w=440&thumb=false',
-                description: 'Experience the thrill of cricket like never before with Cricket 24. With realistic gameplay',
-                price: '2499',
-            },
-            {
-                id:4,
-                title: 'Tekken 8',
-                developer: 'Visual Concepts',
-                img: 'https://image.api.playstation.com/vulcan/ap/rnd/202308/0312/aff71a0ced271048f5079b1fcf715bcb45110efc13e9704a.png?w=440&thumb=false',
-                description: 'Experience the thrill of cricket like never before with Cricket 24. With realistic gameplay',
-                price: '2649',
-            },
-
-        ]
-    },
-
-    {
-        PreOrder:[
-            {
-                id:1,
-                title: `Assassin's Creed Shadows`,
-                developer: 'Ubisoft',
-                img: 'https://image.api.playstation.com/vulcan/ap/rnd/202404/1815/e67713e008d1cdb83ebf71916c193a5c03ae7e12b85133d2.png?w=5000&thumb=false',
-                description: 'Experience the thrill of cricket like never before with Cricket 24. With realistic gameplay',
-                price: '5299',
             },
             {
                 id:2,
