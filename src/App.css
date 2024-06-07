@@ -16,3 +16,16 @@
     font-weight: 400;
     font-style: normal;
 }
+
+.styled-input {
+    outline: 3px solid #60a5fa;
+    padding: 6px;
+    font-size: 20px;
+    border: none;
+    border-radius: 8px;
+    width: 350px;
+  }
+  .styled-input:focus {
+    outline-width: 4px;
+  }
+  

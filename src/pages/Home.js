@@ -11,10 +11,9 @@ import Footer from '../components/Footer';
 
 const Home = () => {
     return (
-        <div>
-            <Navbar></Navbar>
+        <div className='my-16 py-8'>
             <Hero></Hero>
-            <Slider GameData = {GameData}></Slider>
+            <Slider GameData={GameData}></Slider>
             <Categories></Categories>
             <SpecialOffers></SpecialOffers>
             <NewRelease></NewRelease>
