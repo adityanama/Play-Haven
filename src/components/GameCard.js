@@ -1,8 +1,10 @@
 import React from 'react'
+import { useNavigate } from 'react-router'
 
 const GameCard = ({ GameData }) => {
+    const navigate = useNavigate();
     return (
-        <div className='flex flex-col text-white border-2 border-blue-900 p-4 pb-0 h-[480px] w-[320px] justify-between rounded-xl hover:scale-110 duration-150 ease-in cursor-pointer'>
+        <div className='flex flex-col text-white border-2 border-blue-900 p-4 pb-0 h-[480px] w-[320px] justify-between rounded-xl hover:scale-110 duration-150 ease-in cursor-pointer' onClick={() => navigate(`/store/game/${GameData.title}`)}>
             <img src={GameData.img} width="300px"></img>
             <h1 className='text-white text-2xl mt-4 font-semibold'>{GameData.title}</h1>
             <div className='flex items-center -mt-3'>

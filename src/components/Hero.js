@@ -1,7 +1,10 @@
 import React from 'react'
 import './Hero.css'
+import { useNavigate } from 'react-router'
 
 const Hero = () => {
+    
+    const navigate = useNavigate();
     return (
         <div className='relative'>
             <img src='https://bgeek.eu/wp-content/uploads/2021/05/ubisoft-plus_hero_mobile.jpg' className='pt-16 opacity-25 mb-24 mx-auto'></img>
@@ -11,7 +14,7 @@ const Hero = () => {
                 <p className='-mt-8 hero-title'>Begins Here!</p>
 
                 <div className='mt-16 gap-16 flex'>
-                    <button className='text-2xl py-3 px-4 bg-[rgba(2,2,100)] rounded-xl hover:bg-[rgb(3,3,44)] duration-100'>Shop Now</button>
+                    <button className='text-2xl py-3 px-4 bg-[rgba(2,2,100)] rounded-xl hover:bg-[rgb(3,3,44)] duration-100' onClick={() => navigate("/store")}>Shop Now</button>
                     <button className='text-2xl py-3 px-4 bg-[rgba(2,2,100)] rounded-xl hover:bg-[rgb(3,3,44)] duration-100'>View Deals</button>
                     
                 </div>

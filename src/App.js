@@ -4,6 +4,8 @@ import Home from './pages/Home';
 import SignIn from './pages/SignIn';
 import Navbar from './components/Navbar';
 import SignUp from './pages/SignUp';
+import Shop from './pages/Shop';
+import GameInfo from './components/GameInfo';
 
 function App() {
     return (
@@ -13,6 +15,8 @@ function App() {
                 <Route path='/' element={<Home />} />
                 <Route path='/account/LogIn' element = {<SignIn/>}/>
                 <Route path='/account/SignUp' element = {<SignUp/>}/>
+                <Route path='/store' element = {<Shop/>}/>
+                <Route path='/store/game/:gameTitle' element = {<GameInfo/>}/>
             </Routes>
         </div>
     );

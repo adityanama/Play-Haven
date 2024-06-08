@@ -3,6 +3,7 @@ import './Navbar.css'
 import { Link, NavLink } from 'react-router-dom'
 import AccountMenu from './AccountMenu'
 
+
 const Navbar = () => {
     return (
         <div className='text-white py-2 flex justify-around items-center work-font fixed w-full bg-[rgb(2,2,36)] top-0 shadow-xl z-10'>

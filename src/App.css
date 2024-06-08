@@ -7,7 +7,6 @@
 }
 
 .wrapper {
-    width: 100vw;
     background-color: rgb(2, 2, 36);
 }
 
@@ -28,4 +27,3 @@
   .styled-input:focus {
     outline-width: 4px;
   }
-  

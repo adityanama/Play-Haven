@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Footer = () => {
+const GameInfo = () => {
     return (
         <div>
-
+            
         </div>
     )
 }
 
-export default Footer
+export default GameInfo
