@@ -5,7 +5,7 @@ import SignIn from './pages/SignIn';
 import Navbar from './components/Navbar';
 import SignUp from './pages/SignUp';
 import Shop from './pages/Shop';
-import GameInfo from './components/GameInfo';
+import GameInfo from './pages/GameInfo';
 
 function App() {
     return (

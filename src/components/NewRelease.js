@@ -1,6 +1,6 @@
 import React from 'react'
 import GameCard from './GameCard'
-import GameData from '../GamesData'
+import {GameData} from '../GamesData'
 
 const NewRelease = () => {
     return (

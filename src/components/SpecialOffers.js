@@ -1,5 +1,5 @@
 import React from 'react'
-import GameData from '../GamesData'
+import {GameData} from '../GamesData'
 import SpecialOffercard from './SpecialOfferCard'
 
 const SpecialOffers = () => {
