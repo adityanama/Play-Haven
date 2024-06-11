@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import {Games} from '../GamesData'
 import GameCard from '../components/GameCard';
 import SpecialOffercard from '../components/SpecialOfferCard';
+import toast from 'react-hot-toast';
 
 const Shop = () => {
 
@@ -28,6 +29,7 @@ const Shop = () => {
     const clickHandler = () => {
         setSelected('');
         setValue(5000);
+        toast.success("All Filters removed");
     }
 
     return (
