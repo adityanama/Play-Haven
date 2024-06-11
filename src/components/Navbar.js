@@ -18,12 +18,9 @@ const Navbar = () => {
                 <Link to={'/store'}>
                     <h2 className='hover:text-blue-600'>Shop</h2>
                 </Link>
-                <Link to={'/'}>
-                    <h2 className='hover:text-blue-600'>Deals</h2>
-                </Link>
-                <Link to={'/'}>
-                    <h2 className='hover:text-blue-600'>New Release</h2>
-                </Link>
+                <a href="#deals">Deals</a>
+                <h2 className='hover:text-blue-600'><a href="#new-release">New Release</a></h2>
+
                 <Link to={'/'}>
                     <h2 className='hover:text-blue-600'>About Us</h2>
                 </Link>
