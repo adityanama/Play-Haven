@@ -15,7 +15,7 @@ const Hero = () => {
 
                 <div className='mt-16 gap-16 flex'>
                     <button className='text-2xl py-3 px-4 bg-[rgba(2,2,100)] rounded-xl hover:bg-[rgb(3,3,44)] duration-100' onClick={() => navigate("/store")}>Shop Now</button>
-                    <button className='text-2xl py-3 px-4 bg-[rgba(2,2,100)] rounded-xl hover:bg-[rgb(3,3,44)] duration-100'>View Deals</button>
+                    <button className='text-2xl py-3 px-4 bg-[rgba(2,2,100)] rounded-xl hover:bg-[rgb(3,3,44)] duration-100'><a href='#deals'>View Deals</a></button>
                     
                 </div>
             </div>

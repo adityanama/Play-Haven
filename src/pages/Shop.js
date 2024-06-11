@@ -21,6 +21,8 @@ const Shop = () => {
             allGames.sort((a, b) => a.title.localeCompare(b.title));
         else if (selected === 'za')
             allGames.sort((a, b) => b.title.localeCompare(a.title));
+        else if(selected === 'sale')
+            allGames.sort((a, b) => b.discount - a.discount)
 
         return allGames;
 
@@ -67,9 +69,13 @@ const Shop = () => {
                         <input type='checkbox' id='za' checked={selected === 'za'} onChange={(e) => setSelected(e.target.id)}></input>
                         <label htmlFor='za' className='text-xl ml-3'>Z to A</label>
                     </div>
+                    <div>
+                        <input type='checkbox' id='sale' checked={selected === 'sale'} onChange={(e) => setSelected(e.target.id)}></input>
+                        <label htmlFor='sale' className='text-xl ml-3'>On Sale</label>
+                    </div>
                 </fieldset>
 
-                <button className='text-xl py-3 px-4 bg-[#282882] rounded-xl hover:bg-[rgb(26,26,87)] duration-100 m-20' onClick={clickHandler}>Reset Filters</button>
+                <button className='text-xl py-3 px-4 bg-[#282882] rounded-xl hover:bg-[rgb(26,26,87)] duration-100 block mx-auto mt-10' onClick={clickHandler}>Reset Filters</button>
             </div>
             <div className='flex flex-wrap gap-10 items-center ml-16'>
                 {

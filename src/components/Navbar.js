@@ -12,16 +12,13 @@ const Navbar = () => {
                 <img src='/logo.png' width="300px" alt='Logo' />
             </div>
 
-            <div className='flex items-center gap-8 text-[22px]'>
+            <div className='flex items-center gap-10 text-[22px]'>
                 <Link to={'/'}>
                     <h2 className='hover:text-blue-600'>Home</h2>
                 </Link>
                 <Link to={'/store'}>
                     <h2 className='hover:text-blue-600'>Shop</h2>
                 </Link>
-
-                <h2 className='hover:text-blue-600'><a href='#deals'>Deals</a></h2>
-                <h2 className='hover:text-blue-600'><a href='#newRelease'>New Release</a></h2>
 
                 <Link to={'/aboutUs'}>
                     <h2 className='hover:text-blue-600'>About Us</h2>

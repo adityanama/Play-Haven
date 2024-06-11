@@ -10,17 +10,18 @@ import Wishlist from './pages/Wishlist';
 import Cart from './pages/Cart';
 
 function App() {
+
     return (
         <div className='wrapper'>
-            <Navbar></Navbar>
+            <Navbar/>   
             <Routes>
                 <Route path='/' element={<Home />} />
-                <Route path='/account/LogIn' element = {<SignIn/>}/>
-                <Route path='/account/SignUp' element = {<SignUp/>}/>
-                <Route path='/store' element = {<Shop/>}/>
-                <Route path='/store/game/:gameTitle' element = {<GameInfo/>}/>
-                <Route path='/wishlist' element = {<Wishlist/>}/>
-                <Route path='/cart' element = {<Cart/>}/>
+                <Route path='/account/LogIn' element={<SignIn />} />
+                <Route path='/account/SignUp' element={<SignUp />} />
+                <Route path='/store' element={<Shop />} />
+                <Route path='/store/game/:gameTitle' element={<GameInfo />} />
+                <Route path='/wishlist' element={<Wishlist />} />
+                <Route path='/cart' element={<Cart />} />
             </Routes>
         </div>
     );
