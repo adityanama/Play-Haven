@@ -1,6 +1,9 @@
 import React from 'react'
+import { useNavigate } from 'react-router'
 
 const SliderCard = ({ GameData }) => {
+    const navigate = useNavigate();
+    
     return (
         <div className='flex mx-auto gap-16 justify-center slider-bg mb-16 py-12 items-center work-font border-y-[4px] border-indigo-900 h-[550px]'>
             <img src={GameData.img} className='rounded-lg' width="400px"></img>
@@ -15,7 +18,7 @@ const SliderCard = ({ GameData }) => {
                 </div>
                 <div className='flex gap-12'>
                     <button className='text-2xl py-3 px-4 bg-[rgba(2,2,100)] rounded-xl hover:bg-[rgb(3,3,44)] duration-100 w-4/12 -mt-2 text-white font-semibold'>Add to Cart</button>
-                    <button className='text-2xl py-3 px-4 bg-[rgba(2,2,100)] rounded-xl hover:bg-[rgb(3,3,44)] duration-100 w-4/12 -mt-2 text-white font-semibold'>View in Store</button>
+                    <button className='text-2xl py-3 px-4 bg-[rgba(2,2,100)] rounded-xl hover:bg-[rgb(3,3,44)] duration-100 w-4/12 -mt-2 text-white font-semibold' onClick={() => navigate(`/store/game/${GameData.title}`)}>View in Store</button>
                 </div>
             </div>
         </div>
