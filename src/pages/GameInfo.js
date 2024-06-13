@@ -11,7 +11,7 @@ const GameInfo = () => {
         <div className="pt-36 text-white flex w-11/12 mx-auto min-h-screen">
             <img src={game.img} alt={game.title} className='rounded-lg max-h-[400px] max-w-[400px] mt-8' />
             <div className='w-7/12 mx-auto flex flex-col gap-4'>
-                <h1 className='text-5xl font-semibold text-yellow-500'>{game.title}</h1>
+                <h1 className='text-5xl font-bold text-[rgb(82,160,255)]'>{game.title}</h1>
                 <h1 className='text-2xl mt-4'>Developer : <span className='font-semibold'>{game.developer}</span></h1>
                 <p className='text-xl mt-8 leading-8'>{game.description}</p>
                 <div className='flex items-center -mt-2'>

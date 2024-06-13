@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
+import { apiConnector } from '../services/apiConnector';
 
 const SignUp = () => {
     const [email, setEmail] = useState('');
@@ -8,33 +9,40 @@ const SignUp = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [showCnfPassword, setShowCnfPassword] = useState(false);
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async(event) => {
         event.preventDefault();
-        // Handle login logic here
-        console.log('Email:', email);
-        console.log('Password:', password);
-    };
+        // console.log('Email:', email);
+        // console.log('Password:', password);
+        
+        const response = await apiConnector("POST","http://localhost:4000/api/v1/auth/sendotp",{email});
+
+        console.log(response);
+    }
 
     return (
-        <div className="h-[100vh] flex items-center justify-center bg-[rgb(2,2,36)] text-white mt-16">
-            <div className="bg-[rgb(2,2,36)] p-8 rounded-lg shadow-md w-full max-w-md">
+        <div className="h-[100vh] flex items-center justify-center bg-[rgb(2,2,36)] text-white mt-12">
+            <div className="bg-[rgb(2,2,36)] p-8  w-full max-w-lg">
                 <h2 className="text-3xl font-bold mb-6 text-center">Create Your Account</h2>
-                <form onSubmit={handleSubmit} className="space-y-5 mt-8">
-                    <div className='flex'>
-                        <label htmlFor="FirstName" className="block text-lg font-medium text-white ">Name</label>
-                        <input
-                            type="text"
-                            id="FirstName"
-                            className="text-black mt-1 block w-full border-2 px-3 py-1 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-lg"
-                            required
-                        />
-                        <label htmlFor="name" className="block text-lg font-medium text-white ">Name</label>
-                        <input
-                            type="text"
-                            id="name"
-                            className="text-black mt-1 block w-full border-2 px-3 py-1 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-lg"
-                            required
-                        />
+                <form onSubmit={handleSubmit} className="space-y-5 mt-12">
+                    <div className='flex gap-8'>
+                        <div>
+                            <label htmlFor="FirstName" className="block text-lg font-medium text-white ">First Name</label>
+                            <input
+                                type="text"
+                                id="FirstName"
+                                className="text-black mt-1 block w-full border-2 px-3 py-1 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-lg"
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="name" className="block text-lg font-medium text-white ">Last Name</label>
+                            <input
+                                type="text"
+                                id="name"
+                                className="text-black mt-1 block w-full border-2 px-3 py-1 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-lg"
+                                required
+                            />
+                        </div>
                     </div>
                     <div>
                         <label htmlFor="email" className="block text-lg font-medium text-white ">Email</label>

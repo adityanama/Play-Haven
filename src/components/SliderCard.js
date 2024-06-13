@@ -9,7 +9,7 @@ const SliderCard = ({ GameData }) => {
             <img src={GameData.img} className='rounded-lg' width="400px"></img>
 
             <div className='text-white flex flex-col w-[610px] gap-2'>
-                <h1 className='text-5xl font-bold text-yellow-400 underline'>{GameData.title}</h1>
+                <h1 className='text-5xl font-bold text-[rgba(82,160,255)]'>{GameData.title}</h1>
                 <h2 className='text-xl font-semibold'>{GameData.developer}</h2>
                 <p className='text-lg text-white mt-4'>{GameData.description.substr(0, 300) + "..."}</p>
                 <div className='flex items-center -mt-2'>
