@@ -62,16 +62,16 @@ const Shop = () => {
 
                 <fieldset className='flex flex-col mt-12 gap-4 ml-8'>
                     <div>
-                        <input type='checkbox' id='az' checked={selected === 'az'} onChange={(e) => setSelected(e.target.id)}></input>
-                        <label htmlFor='az' className='text-xl ml-3'>A to Z</label>
+                        <input type='checkbox' id='az' checked={selected === 'az'} onChange={(e) => setSelected(e.target.id)} className='scale-125'></input>
+                        <label htmlFor='az' className='text-xl ml-4'>A to Z</label>
                     </div>
                     <div>
-                        <input type='checkbox' id='za' checked={selected === 'za'} onChange={(e) => setSelected(e.target.id)}></input>
-                        <label htmlFor='za' className='text-xl ml-3'>Z to A</label>
+                        <input type='checkbox' id='za' checked={selected === 'za'} onChange={(e) => setSelected(e.target.id)} className='scale-125'></input>
+                        <label htmlFor='za' className='text-xl ml-4'>Z to A</label>
                     </div>
                     <div>
-                        <input type='checkbox' id='sale' checked={selected === 'sale'} onChange={(e) => setSelected(e.target.id)}></input>
-                        <label htmlFor='sale' className='text-xl ml-3'>On Sale</label>
+                        <input type='checkbox' id='sale' checked={selected === 'sale'} onChange={(e) => setSelected(e.target.id)} className='scale-125 '></input>
+                        <label htmlFor='sale' className='text-xl ml-4'>On Sale</label>
                     </div>
                 </fieldset>
 
