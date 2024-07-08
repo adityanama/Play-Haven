@@ -10,7 +10,7 @@ import { sendOTP } from '../services/operations/authAPI';
 const SignUp = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const {loading} = useSelector((state) => state.auth)
+    const { loading } = useSelector((state) => state.auth)
 
     const [formData, setFormData] = useState({
         firstName: "",
@@ -58,71 +58,78 @@ const SignUp = () => {
     return (
         <div className="min-h-screen grid place-items-center">
             {
-
                 loading ? (
                     <div className='spinner'></div>
                 ) : (
-                    <div className="h-[100vh] flex items-center justify-center bg-[rgb(2,2,36)] text-white mt-12">
-                        <div className="bg-[rgb(2,2,36)] p-8  w-full max-w-lg">
-                            <h2 className="text-3xl font-bold mb-6 text-center">Create Your Account</h2>
-                            <form onSubmit={handleSubmit} className="space-y-5 mt-12">
+                    <div className="min-h-screen flex items-center justify-center bg-[rgb(2,2,36)] pt-24 w-[500px]">
+                        <div className="bg-gray-900 p-8 rounded-lg shadow-lg w-full">
+                            <h1 className="text-3xl font-bold text-center text-white mb-8">Create new Account</h1>
+                            <form onSubmit={handleSubmit}>
                                 <div className='flex gap-8'>
-                                    <div>
-                                        <label htmlFor="FirstName" className="block text-lg font-medium text-white ">First Name</label>
+                                    <div className="mb-4">
+                                        <label className="block text-gray-200 text-md mb-2" htmlFor="firstname">
+                                            First Name
+                                        </label>
                                         <input
+                                            className="w-full p-3 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-indigo-600"
                                             type="text"
-                                            id="FirstName"
-                                            className="text-black mt-1 block w-full border-2 px-3 py-1 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-lg"
+                                            id="firstname"
+                                            placeholder="Enter your first name"
                                             name="firstName"
                                             value={firstName}
                                             onChange={handleOnChange}
-                                            placeholder="Enter first name"
                                             required
                                         />
                                     </div>
-                                    <div>
-                                        <label htmlFor="name" className="block text-lg font-medium text-white ">Last Name</label>
+                                    <div className="mb-4">
+                                        <label className="block text-gray-200 text-md mb-2" htmlFor="lastname">
+                                            Last Name
+                                        </label>
                                         <input
+                                            className="w-full p-3 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-indigo-600"
                                             type="text"
-                                            id="name"
-                                            className="text-black mt-1 block w-full border-2 px-3 py-1 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-lg"
+                                            id="lastname"
+                                            placeholder="Enter your last name"
                                             name="lastName"
                                             value={lastName}
                                             onChange={handleOnChange}
-                                            placeholder="Enter first name"
                                             required
                                         />
                                     </div>
                                 </div>
-                                <div>
-                                    <label htmlFor="email" className="block text-lg font-medium text-white ">Email</label>
+                                <div className="mb-4">
+                                    <label className="block text-gray-200 text-md mb-2" htmlFor="email">
+                                        Email
+                                    </label>
                                     <input
+                                        className="w-full p-3 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-indigo-600"
                                         type="email"
                                         id="email"
-                                        className="text-black mt-1 block w-full border-2 px-3 py-1 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-lg"
+                                        placeholder="Enter your email"
                                         name="email"
-                                        value={email}
                                         onChange={handleOnChange}
-                                        placeholder="Enter email"
+                                        value={email}
                                         required
                                     />
                                 </div>
-                                <div className='relative'>
-                                    <label htmlFor="password" className="block text-lg font-medium text-white">Password</label>
+                                <div className="mb-4 relative">
+                                    <label className="block text-gray-200 text-md mb-2" htmlFor="password">
+                                        Password
+                                    </label>
                                     <input
-                                        type={showPassword ? "text" : "password"}
+                                        className="w-full p-3 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-indigo-600"
+                                        type={showPassword ? "text": "password"}
                                         id="password"
-                                        className="text-black mt-1 block w-full border-2 px-3 py-1 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-lg"
+                                        placeholder="Enter your password"
                                         name="password"
                                         value={password}
                                         onChange={handleOnChange}
-                                        placeholder="Enter password"
                                         required
                                     />
                                     <button
                                         type="button"
                                         onClick={() => { setShowPassword(!showPassword) }}
-                                        className="absolute  right-0 top-[45px] px-3 flex items-center text-gray-500"
+                                        className="absolute right-0 top-[50px] px-3 flex items-center text-gray-500"
                                     >
                                         {showPassword ? (
                                             <FaRegEyeSlash />
@@ -130,23 +137,26 @@ const SignUp = () => {
                                             <FaRegEye />
                                         )}
                                     </button>
+
                                 </div>
-                                <div className='relative'>
-                                    <label htmlFor="Cnfpassword" className="block text-lg font-medium text-white">Confirm Password</label>
+                                <div className="mb-4 relative">
+                                    <label className="block text-gray-200 text-md mb-2" htmlFor="confirm-password">
+                                        Confirm Password
+                                    </label>
                                     <input
-                                        type={showCnfPassword ? "text" : "password"}
-                                        id="Cnfpassword"
-                                        className="text-black mt-1 block w-full border-2 px-3 py-1 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-lg"
+                                        className="w-full p-3 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-indigo-600"
+                                        type={showCnfPassword ? "text": "password"}
+                                        id="confirm-password"
+                                        placeholder="Confirm your password"
                                         name="confirmPassword"
                                         value={confirmPassword}
                                         onChange={handleOnChange}
-                                        placeholder="Confirm password"
                                         required
                                     />
                                     <button
                                         type="button"
                                         onClick={() => { setShowCnfPassword(!showCnfPassword) }}
-                                        className="absolute  right-0 top-[45px] px-3 flex items-center text-gray-500"
+                                        className="absolute  right-0 top-[50px] px-3 flex items-center text-gray-500"
                                     >
                                         {showCnfPassword ? (
                                             <FaRegEyeSlash />
@@ -154,18 +164,14 @@ const SignUp = () => {
                                             <FaRegEye />
                                         )}
                                     </button>
+
                                 </div>
-                                <button
-                                    type="submit"
-                                    className="w-24 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 block mx-auto"
-                                >
+                                <button className="w-full bg-indigo-600 text-white p-3 rounded-lg hover:bg-indigo-800 transition duration-300" type='submit'>
                                     Sign Up
                                 </button>
                             </form>
-
-                            <div className='mt-8 text-lg'>
-                                <p className="text-gray-300 text-center">Already have an account? <Link to="/account/LogIn" className="text-blue-500 hover:text-blue-600">Log In</Link></p>
-
+                            <div className="text-center mt-4">
+                                <Link to="/account/login" className="text-gray-400 text-sm">Already have an account? <span className='text-blue-500 hover:text-blue-700 duration-150'>Log In</span></Link>
                             </div>
                         </div>
                     </div>
