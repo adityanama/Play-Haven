@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { Games } from '../GamesData';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../services/operations/cartAPI';
-import { setTotalItems } from '../Slices/cartSlice';
+
 
 const GameInfo = () => {
     const { gameTitle } = useParams();

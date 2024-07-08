@@ -73,7 +73,7 @@ const SignIn = () => {
                                 </button>
                             </form>
                             <div className="text-center mt-4">
-                                <a href="#" className="text-gray-400 text-sm hover:text-white transition duration-300">Forgot password?</a>
+                                <Link to={"/account/forgot-password"} className="text-gray-400 text-sm hover:text-white transition duration-300">Forgot password?</Link>
                             </div>
                             <div className="text-center mt-4">
                                 <Link to="/account/signup" className="text-gray-400 text-sm">Don't have an account? <span className='text-blue-500 hover:text-blue-700 duration-150'> Sign Up</span></Link>

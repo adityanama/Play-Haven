@@ -43,7 +43,7 @@ const AccountMenu = () => {
             />
             {menuOpen && !token &&
                 <div className="absolute -right-16 top-16 mt-2 w-[220px] bg-[rgb(2,2,36)] border border-gray-300 rounded-lg shadow-lg text-lg">
-                    <Link to={'/account/LogIn'} className="block p-4 text-white hover:bg-[#256bc2]" onClick={() => setMenuOpen(false)}>Sign In</Link>
+                    <Link to={'/account/LogIn'} className="block p-4 text-white hover:bg-[#256bc2]" onClick={() => setMenuOpen(false)}>Log In</Link>
                     <Link to={'/account/SignUp'} className="block p-4 text-white hover:bg-[#256bc2]" onClick={() => setMenuOpen(false)}>Create New Account</Link>
                 </div>
             }

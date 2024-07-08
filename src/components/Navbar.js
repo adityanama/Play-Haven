@@ -1,20 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Navbar.css'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import AccountMenu from './AccountMenu'
 import { useSelector } from 'react-redux'
+import { getGames, getTotalGames } from '../services/operations/cartAPI'
 
 
 const Navbar = () => {
     
-    const {totalItems} = useSelector((state) => state.cart)
+    const [totalItems ,setTotalItems] = useState(0);
     const {token} = useSelector((state) => state.auth)
-    console.log(token)
     const navigate = useNavigate();
     const location = useLocation();
+
     
     return (
-        <div className='text-white py-2 flex justify-start gap-48 items-center work-font fixed w-full bg-[rgb(2,2,36)] top-0 shadow-xl z-10'>
+        <div className='text-white py-2 flex justify-start gap-48 items-center work-font fixed w-full bg-[rgb(2,2,36)] top-0 shadow-2xl z-10'>
             <div onClick={() => { window.location.href = '/' }} className=' cursor-pointer ml-8'>
                 <img src='/logo.png' width="300px" alt='Logo' />
             </div>

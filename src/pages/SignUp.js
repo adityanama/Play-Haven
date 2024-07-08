@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
-import { apiConnector } from '../services/apiConnector';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSignupData } from '../Slices/authSlice';
 import toast from 'react-hot-toast';

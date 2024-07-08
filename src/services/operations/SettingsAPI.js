@@ -19,6 +19,7 @@ export const updateProfilePic = (formData, token) => {
             }
 
             toast.success(response.data.message);
+            console.log(response.data)
             dispatch(setUser(response.data.data));
 
         } catch (error) {

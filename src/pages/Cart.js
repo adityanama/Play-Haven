@@ -4,16 +4,16 @@ import { useNavigate } from 'react-router'
 import GameItem from '../components/GameItem'
 import { buyGame } from '../services/operations/studentFeaturesAPI'
 import { clearCart, getGames } from '../services/operations/cartAPI'
-import { setTotalItems } from '../Slices/cartSlice'
+
 
 const Cart = () => {
 
     const { token } = useSelector((state) => state.auth)
     const { user } = useSelector((state) => state.profile)
-    const {totalItems} = useSelector((state) => state.cart)
     const [cart, setCart] = useState([])
     const [loading, setLoading] = useState(false)
     const [total, setTotal] = useState(0);
+
 
 
     const dispatch = useDispatch();
@@ -32,31 +32,30 @@ const Cart = () => {
     }, [])
 
     useEffect(() => {
-        if(cart.length)
-            setTotal(cart.reduce((acc, curr) => acc + curr.price, 0));
+        // if(cart.length)
+        cart && setTotal(cart.reduce((acc, curr) => acc + curr.price, 0));
     }, [cart])
 
     const handlePurchase = () => {
         buyGame(token, cart, total, user, navigate, dispatch)
     }
 
-    const clearcart = async() => {
+    const clearcart = async () => {
         await clearCart(token)
-        dispatch(setTotalItems(0))
         fetchGames()
-    }   
+    }
 
     console.log(total)
 
     return (
-        <>
+        <div className='min-h-screen'>
             {
-                loading ? (<div className='spinner min-h-screen grid place-items-center'></div>) : (
+                loading ? (<div className='spinner grid place-items-center'></div>) : (
                     <div className='min-h-screen'>
                         {
-                            cart.length > 0 ?
+                            cart && cart.length > 0 ?
                                 (<div className='flex justify-between gap-0 mt-28 pt-12 w-9/12 mx-auto items-start'>
-                                    <div className='flex flex-col w-7/12 gap-14 mb-16'>
+                                    <div className='flex flex-col w-8/12 gap-14 mb-16'>
                                         {
                                             cart.map((game, index) => (
                                                 <GameItem game={game} key={index} flag={game.id === cart.at(-1).id} fetchGames={fetchGames} />
@@ -70,7 +69,7 @@ const Cart = () => {
                                             <p className=' text-blue-500 font-bold uppercase text-lg'>Your Cart</p>
                                             <p className=' text-blue-500 font-bold uppercase text-5xl'>Summary</p>
                                             <p className='mt-5 text-2xl'>
-                                                <span className='font-semibold mr-1 text-white'>Total Items  : {totalItems}</span>
+                                                <span className='font-semibold mr-1 text-white'>Total Items  : {cart.length}</span>
                                             </p>
                                         </div>
 
@@ -84,7 +83,7 @@ const Cart = () => {
                                                 </div>
                                             </div>
                                             <button className='text-white font-bold bg-blue-700 px-4 py-3 rounded-lg hover:bg-blue-900 duration-300 text-2xl -mt-4 mb-8' onClick={handlePurchase}>Checkout</button>
-                                            <button className='text-white font-bold bg-red-600 px-4 py-3 rounded-lg hover:bg-red-900 duration-300 text-2xl -mt-4' onClick={clearcart }>Clear Cart</button>
+                                            <button className='text-white font-bold bg-red-600 px-4 py-3 rounded-lg hover:bg-red-900 duration-300 text-2xl -mt-4' onClick={clearcart}>Clear Cart</button>
                                         </div>
                                     </div>
                                 </div>) :
@@ -98,7 +97,7 @@ const Cart = () => {
                     </div >
                 )
             }
-        </>
+        </div>
     )
 }
 

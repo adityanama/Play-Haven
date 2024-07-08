@@ -3,17 +3,15 @@ import { RiDeleteBin7Fill } from "react-icons/ri";
 import { useDispatch, useSelector } from 'react-redux';
 
 import { removeFromCart } from '../services/operations/cartAPI';
-import { setTotalItems } from '../Slices/cartSlice';
+
 
 const GameItem = ({ game, flag, fetchGames}) => {
 
-    const dispatch = useDispatch();
     const {token} = useSelector((state) => state.auth)
 
     const handleRemove = async() => {
         await removeFromCart(token)
         fetchGames()
-        dispatch(setTotalItems(-1))
     }
 
     return (

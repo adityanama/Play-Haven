@@ -1,10 +1,9 @@
 import toast from "react-hot-toast";
 import { apiConnector } from "../apiConnector"
 import { cartEndpoints } from "../apis"
-import { setTotalItems } from "../../Slices/cartSlice";
 
 
-export const addToCart = async (game, token,dispatch) => {
+export const addToCart = async (game, token, dispatch) => {
     const toastId = toast.loading("Loading...");
     try {
         const response = await apiConnector("POST", cartEndpoints.ADD_CART_API, { game }, {
@@ -14,9 +13,6 @@ export const addToCart = async (game, token,dispatch) => {
         console.log(response);
 
         toast.success(response.data.message)
-
-        if(response.data?.success)
-            dispatch(setTotalItems(1));
 
     } catch (error) {
         console.log(error)
@@ -63,3 +59,17 @@ export const getGames = async (token) => {
         console.log(error)
     }
 }
+
+export const getTotalGames = async (token) => {
+    try {
+        const response = await apiConnector("GET", cartEndpoints.GET_TOTAL_GAMES_API, {}, {
+            Authorization: `${token}`
+        })
+        console.log(response)
+        return response.data.total
+        
+    } catch (error) {
+        console.log(error)
+    }
+
+} 

@@ -25,5 +25,12 @@ export const cartEndpoints = {
     REMOVE_CART_API : BASE_URL + "/cart/removefromcart",
     RESET_CART_API : BASE_URL + "/cart/resetcart",
     GET_CART_API : BASE_URL + "/cart/getgames",
+    GET_TOTAL_GAMES_API : BASE_URL + "/cart/gettotalgames"
+}
 
+export const settingsEndpoints = {
+    UPDATE_DISPLAY_PICTURE_API: BASE_URL + "/profile/updateDisplayPicture",
+    UPDATE_PROFILE_API: BASE_URL + "/profile/updateProfile",
+    CHANGE_PASSWORD_API: BASE_URL + "/auth/changepassword",
+    DELETE_PROFILE_API: BASE_URL + "/profile/deleteProfile",
 }

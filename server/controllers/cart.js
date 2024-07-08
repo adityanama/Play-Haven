@@ -23,7 +23,7 @@ exports.addToCart = async (req, res) => {
         cart.games.push(game)
         await cart.save()
 
-        return res.status(200).json({success:true, message: "Game added to cart" })
+        return res.status(200).json({ success: true, message: "Game added to cart" })
     } else {
         const cart = new Cart({ email, games: [game] })
         await cart.save()
@@ -47,7 +47,7 @@ exports.removeFromCart = async (req, res) => {
     })
 }
 
-exports.resetCart = async (req,res) => {
+exports.resetCart = async (req, res) => {
     const id = req.user.id
     const user = await User.findById(id)
     const email = user.email
@@ -69,4 +69,15 @@ exports.getGames = async (req, res) => {
     console.log(cart)
 
     return res.status(200).json({ games: cart.games })
+}
+
+exports.getTotalGames = async(req, res) => {
+    const id = req.user.id
+    const user = await User.findById(id)
+    const email = user.email
+    const cart = await Cart.findOne({ email })
+
+    console.log(cart)
+
+    return res.status(200).json({ total : cart.games.length })
 }

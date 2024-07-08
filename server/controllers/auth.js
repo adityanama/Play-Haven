@@ -4,6 +4,7 @@ const Profile = require("../models/Profile")
 const otpGenerator = require("otp-generator");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const Cart = require("../models/Cart");
 require("dotenv").config();
 
 
@@ -114,6 +115,11 @@ exports.SignUp = async (req, res) => {
             about: null,
             contactNumber: null,
         })
+
+        const cart = await Cart.create({
+            email: email,
+            games:  []
+        });
 
         const hashedPassword = await bcrypt.hash(password, 10);
         const user = await User.create({

@@ -10,6 +10,7 @@ import Wishlist from './pages/Wishlist';
 import Cart from './pages/Cart';
 import VerifyEmail from './pages/VerifyEmail';
 import Account from './pages/Account';
+import ForgotPassword from './pages/ForgotPassword';
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
                 <Route path='/cart' element={<Cart />} />
                 <Route path='/account/verify-email' element={<VerifyEmail />} />
                 <Route path='/account/dashboard' element = {<Account/>}/>
+                <Route path='/account/forgot-password' element = {<ForgotPassword/>}/>
             </Routes>
         </div>
     );
