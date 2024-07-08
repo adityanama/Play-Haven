@@ -8,6 +8,8 @@ import Shop from './pages/Shop';
 import GameInfo from './pages/GameInfo';
 import Wishlist from './pages/Wishlist';
 import Cart from './pages/Cart';
+import VerifyEmail from './pages/VerifyEmail';
+import Account from './pages/Account';
 
 function App() {
 
@@ -22,6 +24,8 @@ function App() {
                 <Route path='/store/game/:gameTitle' element={<GameInfo />} />
                 <Route path='/wishlist' element={<Wishlist />} />
                 <Route path='/cart' element={<Cart />} />
+                <Route path='/account/verify-email' element={<VerifyEmail />} />
+                <Route path='/account/dashboard' element = {<Account/>}/>
             </Routes>
         </div>
     );

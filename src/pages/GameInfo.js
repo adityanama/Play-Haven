@@ -1,11 +1,20 @@
 import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Games } from '../GamesData';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart } from '../services/operations/cartAPI';
+import { setTotalItems } from '../Slices/cartSlice';
 
 const GameInfo = () => {
     const { gameTitle } = useParams();
+    const {token} = useSelector((state) => state.auth)
     const game = Games.find((game) => game.title === gameTitle);
     const navigate = useNavigate();
+    const dispatch = useDispatch()
+
+    const handleAddToCart = () => {
+        addToCart(game, token, dispatch)
+    }
 
     return (
         <div className="pt-36 text-white flex w-11/12 mx-auto min-h-screen">
@@ -19,7 +28,7 @@ const GameInfo = () => {
                     <h2 className='text-5xl -ml-6 text-green-400 font-semibold'>{game.price}</h2>
                 </div>
                 <div className='flex gap-12 mt-4'>
-                    <button className='text-2xl py-3 px-2 bg-[rgba(2,2,100)] rounded-xl hover:bg-[rgb(3,3,44)] duration-100 w-3/12 -mt-2 text-white font-semibold'>Add to Cart</button>
+                    <button className='text-2xl py-3 px-2 bg-[rgba(2,2,100)] rounded-xl hover:bg-[rgb(3,3,44)] duration-100 w-3/12 -mt-2 text-white font-semibold' onClick={handleAddToCart}>Add to Cart</button>
                     <button className='text-2xl py-2 bg-[rgba(2,2,100)] rounded-xl hover:bg-[rgb(3,3,44)] duration-100 w-56 -mt-2 text-white font-semibold' onClick={() => navigate(`/store/game/${game.title}`)}>Add to Wishlist</button>
                 </div>
             </div>

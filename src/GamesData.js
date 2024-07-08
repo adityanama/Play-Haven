@@ -55,7 +55,7 @@ export const GameData = [
     {
         specialOfferData: [
             {
-                id: 1,
+                id: 6,
                 title: 'Cricket 24',
                 developer: 'Big Ant Studios',
                 img: 'https://image.api.playstation.com/vulcan/ap/rnd/202309/2212/d7fba97907064aa33d64c140a8f07c2a8e49d5fa36829a5b.png?w=440&thumb=false',
@@ -65,7 +65,7 @@ export const GameData = [
                 specialPrice: 1999,
             },
             {
-                id: 2,
+                id: 7,
                 title: 'Watch Dogs Legion',
                 developer: 'Big Ant Studios',
                 img: 'https://image.api.playstation.com/vulcan/ap/rnd/202007/0200/ohDfr1TcylLqbwva38ONyLHO.png',
@@ -75,7 +75,7 @@ export const GameData = [
                 specialPrice: 1499,
             },
             {
-                id: 3,
+                id: 8,
                 title: `Assassin's Creed Odyssey`,
                 developer: 'Big Ant Studios',
                 img: 'https://image.api.playstation.com/cdn/EP0001/CUSA09303_00/tzKcptCCUkiigpacybO8xWmvxPS7vIzk.png?w=440&thumb=false',
@@ -85,7 +85,7 @@ export const GameData = [
                 specialPrice: 699,
             },
             {
-                id: 4,
+                id: 9,
                 title: `Marvel's Spider-Man: Miles Morales`,
                 developer: 'Insomanic Games',
                 img: 'https://image.api.playstation.com/vulcan/ap/rnd/202008/1020/T45iRN1bhiWcJUzST6UFGBvO.png?w=440&thumb=false',
@@ -100,7 +100,7 @@ export const GameData = [
     {
         NewRelease: [
             {
-                id: 1,
+                id: 10,
                 title: 'WWE 2K24',
                 developer: 'Visual Concepts',
                 img: 'https://image.api.playstation.com/vulcan/ap/rnd/202401/0902/8ef9ab648b8b46461778764d6942c44a1c485abd7879e7ce.png',
@@ -109,7 +109,7 @@ export const GameData = [
                 discount: 0,
             },
             {
-                id: 2,
+                id: 11,
                 title: 'Ghost of Tsushima DIRECTOR’S CUT',
                 developer: 'Visual Concepts',
                 img: 'https://image.api.playstation.com/vulcan/ap/rnd/202106/2322/c16gs6a7lbAYzPf7ZTikbH1c.png?w=440&thumb=false',
@@ -118,7 +118,7 @@ export const GameData = [
                 discount: 0,
             },
             {
-                id: 3,
+                id: 12,
                 title: `Assassin's Creed® Mirage`,
                 developer: 'Visual Concepts',
                 img: 'https://image.api.playstation.com/vulcan/ap/rnd/202208/1718/phwiQjbJddEg979YucUoP3Vr.png?w=440&thumb=false',
@@ -127,7 +127,7 @@ export const GameData = [
                 discount: 0,
             },
             {
-                id: 4,
+                id: 13,
                 title: 'Tekken 8',
                 developer: 'Visual Concepts',
                 img: 'https://image.api.playstation.com/vulcan/ap/rnd/202308/0312/aff71a0ced271048f5079b1fcf715bcb45110efc13e9704a.png?w=440&thumb=false',

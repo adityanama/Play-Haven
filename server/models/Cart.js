@@ -1,14 +1,12 @@
 const mongoose = require("mongoose");
 
 const cartSchema = new mongoose.Schema({
-    email:{
+    email: {
         type: String,
-        required: true,
     },
-    tag: {
-        type: [Number],
-        required: true,
+    games: {
+        type: [Object],
     },
-})
+});
 
 module.exports = mongoose.model("Cart", cartSchema);

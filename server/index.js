@@ -4,6 +4,7 @@ const app = express();
 const userRoutes = require("./routes/User");
 const profileRoutes = require("./routes/Profile");
 const paymentRoutes = require("./routes/Payments");
+const cartRoutes = require("./routes/Cart");
 
 const database = require("./config/database");
 const { cloudinaryConnect } = require("./config/cloudinary");
@@ -17,12 +18,8 @@ database.dbConnect();
 
 app.use(express.json());
 app.use(cookieparser());
-app.use(
-    cors({
-        origin: "http://localhost:3000",
-        credentials: true,
-    })
-)
+app.use(cors())
+
 app.use(fileUpload({
     useTempFiles: true,
     tempFileDir: "/tmp"
@@ -32,7 +29,8 @@ cloudinaryConnect();
 
 app.use("/api/v1/auth", userRoutes);
 // app.use("/api/v1/profile", profileRoutes);
-// app.use("/api/v1/payments", paymentRoutes);
+app.use("/api/v1/payment", paymentRoutes);
+app.use("/api/v1/cart", cartRoutes);
 
 app.get("/", (req, res) => {
     res.send(`<h1> Welcome to Server </h1>`);

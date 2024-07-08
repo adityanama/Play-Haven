@@ -26,7 +26,7 @@ const userSchema = new mongoose.Schema({
         ref: "Profile",
     },
     games: {
-        type: [Number],
+        type: [Object],
     },
     image: {
         type: String,

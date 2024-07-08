@@ -1,5 +1,6 @@
 const User = require("../models/User");
 const OTP = require("../models/Otp");
+const Profile = require("../models/Profile")
 const otpGenerator = require("otp-generator");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
@@ -64,10 +65,8 @@ exports.SignUp = async (req, res) => {
             email,
             password,
             confirmPassword,
-            contactNumber,
-            accountType,
             otp,
-        } = req.body();
+        } = req.body;
 
         if (!firstName || !lastName || !email || !password || !confirmPassword || !otp) {
             return res.status(403).json({
@@ -94,7 +93,7 @@ exports.SignUp = async (req, res) => {
 
         const recentOTP = await OTP.find({ email }).sort({ createdAt: -1 }).limit(1);
 
-        console.log(recentOTP);
+        console.log("otps => ",recentOTP, otp);
 
         if (recentOTP.length == 0) {
             return res.status(400).json({
@@ -102,7 +101,7 @@ exports.SignUp = async (req, res) => {
                 message: "OTP Not Found",
             })
         }
-        else if (otp !== recentOTP) {
+        else if (otp != recentOTP[0].otp) {
             return res.status(400).json({
                 success: false,
                 message: "Invalid OTP",
@@ -121,9 +120,7 @@ exports.SignUp = async (req, res) => {
             firstName,
             lastName,
             email,
-            contactNumber,
             password: hashedPassword,
-            accountType,
             additionalDetails: profileDetails._id,
             image: `https://api.dicebear.com/5.x/initials/svg?seed=${firstName[0]}${lastName[0]}`,
 
@@ -131,7 +128,7 @@ exports.SignUp = async (req, res) => {
 
         return res.status(200).json({
             success: true,
-            message: "User created successfully",
+            message: "Account created successfully",
             user,
         })
 
@@ -147,7 +144,7 @@ exports.SignUp = async (req, res) => {
 
 exports.login = async (req, res) => {
     try {
-        const { email, password } = req.body();
+        const { email, password } = req.body;
 
         if (!email || !password) {
             return res.status(403).json({
@@ -169,9 +166,8 @@ exports.login = async (req, res) => {
             const payload = {
                 email: user.email,
                 id: user._id,
-                accountType: user.accountType,
             }
-            const token = jwt.sign(payload, process.env.SECRET_KEY, {
+            const token = jwt.sign(payload, process.env.JWT_SECRET, {
                 expiresIn: "2h",
             })
 
