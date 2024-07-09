@@ -3,7 +3,6 @@ import './Navbar.css'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import AccountMenu from './AccountMenu'
 import { useSelector } from 'react-redux'
-import { getGames, getTotalGames } from '../services/operations/cartAPI'
 
 
 const Navbar = () => {
@@ -40,9 +39,6 @@ const Navbar = () => {
 
             <div className='flex items-center gap-8'>
                 <AccountMenu />
-                {
-                    token && <img src='https://img.icons8.com/?size=100&id=0EhgLACHNOtp&format=png&color=000000' width="50px" onClick={() => navigate("/wishlist")} className='cursor-pointer'></img>
-                }
                 {
                     token &&  <div className='relative'>
                         <img src='https://img.icons8.com/?size=100&id=5CLFO93runX4&format=png&color=000000' width="50px" onClick={() => navigate("/cart")} className='cursor-pointer'></img>

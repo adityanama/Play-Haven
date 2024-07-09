@@ -5,6 +5,8 @@ const otpGenerator = require("otp-generator");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const Cart = require("../models/Cart");
+const mailSender = require("../utils/mailSender");
+const { passwordUpdated } = require("../mail/templates/passwordUpdate");
 require("dotenv").config();
 
 
@@ -94,7 +96,7 @@ exports.SignUp = async (req, res) => {
 
         const recentOTP = await OTP.find({ email }).sort({ createdAt: -1 }).limit(1);
 
-        console.log("otps => ",recentOTP, otp);
+        console.log("otps => ", recentOTP, otp);
 
         if (recentOTP.length == 0) {
             return res.status(400).json({
@@ -112,13 +114,13 @@ exports.SignUp = async (req, res) => {
         const profileDetails = await Profile.create({
             gender: null,
             dateOfBirth: null,
-            about: null,
             contactNumber: null,
+            address: null
         })
 
         const cart = await Cart.create({
             email: email,
-            games:  []
+            games: []
         });
 
         const hashedPassword = await bcrypt.hash(password, 10);
@@ -211,8 +213,61 @@ exports.login = async (req, res) => {
 
 exports.changePassword = async (req, res) => {
     try {
-        const {password} = req.body();
+
+        const userDetails = await User.findById(req.user.id)
+        const { oldPassword, newPassword } = req.body
+
+        console.log(oldPassword, " ----- ", newPassword, " -- ", userDetails.password);
+
+        const isPasswordMatch = await bcrypt.compare(
+            oldPassword,
+            userDetails.password
+        )
+
+        console.log(isPasswordMatch);
+        if (!isPasswordMatch) {
+            return res
+                .status(401)
+                .json({ success: false, message: "Incorrect Password" })
+        }
+
+        const encryptedPassword = await bcrypt.hash(newPassword, 10)
+        const updatedUserDetails = await User.findByIdAndUpdate(
+            req.user.id,
+            { password: encryptedPassword },
+            { new: true }
+        )
+
+        try {
+            const emailResponse = await mailSender(
+                updatedUserDetails.email,
+                "Password for your account has been updated",
+                passwordUpdated(
+                    updatedUserDetails.email,
+                    `${updatedUserDetails.firstName} ${updatedUserDetails.lastName}`
+                )
+            )
+            console.log("Email sent successfully:", emailResponse.response)
+        } catch (error) {
+            console.error("Error occurred while sending email:", error)
+            return res.status(500).json({
+                success: false,
+                message: "Error occurred while sending email",
+                error: error.message,
+            })
+        }
+
+        return res
+            .status(200)
+            .json({ success: true, message: "Password updated successfully" })
+
     } catch (error) {
 
+        console.error("Error occurred while updating password:", error)
+        return res.status(500).json({
+            success: false,
+            message: "Error occurred while updating password",
+            error: error.message,
+        })
     }
 }

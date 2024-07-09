@@ -65,7 +65,12 @@ exports.verifySignature = async (req, res) => {
 
     if (expectedSignature === razorpay_signature) {
         const user = await User.findById(userId)
-        const newarr = user.games.concat(games);
+
+        games.forEach(game => {
+            game.purchaseOn = Date.now();
+        });
+
+        const newarr = games.concat(user.games);
         user.games = newarr
 
         await user.save();

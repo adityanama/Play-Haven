@@ -55,8 +55,8 @@ exports.resetPassword = (name, url) => {
     
     <body>
         <div class="container">
-            <a href="https://coursecraft.adityanama.online"><img class="logo"
-					src="https://res.cloudinary.com/deot306mk/image/upload/v1718480095/CourseCraft_Logo.png" alt="course craft Logo"></a>
+            <a href="https://playhaven.adityanama.online"><img class="logo"
+					src="https://res.cloudinary.com/deot306mk/image/upload/f_auto,q_auto/playhaven-logo" alt="Play Haven Logo"></a>
             <div class="message">Reset Password Link</div>
             <div class="body">
                 <p>Hey ${name},</p>
@@ -65,8 +65,8 @@ exports.resetPassword = (name, url) => {
             </div>
             <div class="support">If you have any questions or need further assistance, please feel free to reach out to us
                 at
-                <a href="mailto:info@coursecraft.com">info@coursecraft.com</a>. We are here to help!
-            </div>
+                <a
+					href="mailto:info@playhaven.com">info@playhaven.com</a>. We are here to help!</div>
         </div>
     </body>
     

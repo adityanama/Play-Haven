@@ -49,7 +49,7 @@ const AccountMenu = () => {
             }
             {
                 menuOpen && token && <div className="absolute -right-16 top-16 mt-2 w-[220px] bg-[rgb(2,2,36)] border border-gray-300 rounded-lg shadow-lg text-lg">
-                    <Link to={'/account/dashboard'} className="block p-4 text-white hover:bg-[#256bc2]" onClick={() => setMenuOpen(false)}>My Account</Link>
+                    <Link to={'/account/'} className="block p-4 text-white hover:bg-[#256bc2]" onClick={() => setMenuOpen(false)}>My Account</Link>
                     <button className="p-4 text-white hover:bg-[#256bc2] w-full text-left" onClick={handleClick}>Log Out</button>
                 </div>
             }

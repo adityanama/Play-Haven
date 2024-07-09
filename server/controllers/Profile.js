@@ -5,12 +5,8 @@ const { convertSecondsToDuration } = require("../utils/secToDuration")
 
 exports.updateProfile = async (req, res) => {
     try {
-        const { dateOfBirth = "", about = "", contactNumber, gender, firstName, lastName } = req.body;
+        const { dateOfBirth, address, contactNumber, gender, firstName, lastName } = req.body;
         const id = req.user.id;
-
-        if (!contactNumber || !gender || !id || !firstName || !lastName) {
-            return res.status(400).json({ message: "Please fill all the fields" });
-        }
 
         const userDetails = await User.findById(id);
         const profileId = userDetails.additionalDetails;
@@ -18,13 +14,16 @@ exports.updateProfile = async (req, res) => {
         const profileDetails = await Profile.findById(profileId);
 
         profileDetails.dateOfBirth = dateOfBirth;
-        profileDetails.about = about;
+        profileDetails.address = address;
         profileDetails.gender = gender;
         profileDetails.contactNumber = contactNumber;
         await profileDetails.save();
 
-        userDetails.firstName = firstName;
-        userDetails.lastName = lastName;
+        if(firstName)
+            userDetails.firstName = firstName;
+        if(lastName)
+            userDetails.lastName = lastName;
+
         await userDetails.save();
 
         const updatedUserDetails = await User.findById(id).populate("additionalDetails");
@@ -79,7 +78,7 @@ exports.getAllUserDetails = async (req, res) => {
     try {
         const id = req.user.id;
 
-        const userDetails = await User.findById(id).populate("additionalDetails").exec();
+        const userDetails = await User.findById(id).populate("additionalDetails").populate("games").exec();
 
         return res.status(200).json({
             success: true,

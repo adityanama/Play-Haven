@@ -121,7 +121,7 @@ export const resetPassword = (password, confirmPassword, token) => {
         try {
             const response = await apiConnector("POST", endpoints.RESETPASSWORD_API, { password, confirmPassword, token });
 
-            // console.log(response);
+            console.log(response);
 
             if (!response.data.success) {
                 throw new Error(response.data.message);

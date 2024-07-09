@@ -1,35 +1,57 @@
-import React, { useState } from 'react'
-import {Games} from '../GamesData'
+import React, { useEffect, useState } from 'react'
+import { Games } from '../GamesData'
 import GameCard from '../components/GameCard';
 import SpecialOffercard from '../components/SpecialOfferCard';
 import toast from 'react-hot-toast';
+import { useSelector } from 'react-redux';
 
 const Shop = () => {
 
     const [value, setValue] = useState(5000);
-    const [selected, setSelected] = useState('');
+    const { user } = useSelector((state) => state.profile)
+    const [selectedAZ, setSelectedAZ] = useState('');
+    const [sale, setSale] = useState(false)
+    const [np, setNp] = useState(false)
+
+    const check = (game) => {
+        let flag = false;
+        user.games.forEach(element => {
+            console.log(element.id, game.id)
+            if(element.id === game.id)
+                flag = true
+        })
+
+        console.log("true => ",game.id)
+        return !flag
+    }
 
 
     const getGames = () => {
         let allGames = [...Games];
 
-        if (value < 8000) {
+        if (value < 5000) {
             allGames = allGames.filter(game => game.price <= value);
         }
 
-        if (selected === 'az')
+        if (selectedAZ === 'az')
             allGames.sort((a, b) => a.title.localeCompare(b.title));
-        else if (selected === 'za')
+        else if (selectedAZ === 'za')
             allGames.sort((a, b) => b.title.localeCompare(a.title));
-        else if(selected === 'sale')
-            allGames.sort((a, b) => b.discount - a.discount)
+
+        if (sale)
+            allGames =  allGames.filter((game) => game.discount > 0)
+
+        if (np) {
+            allGames = allGames.filter((game) => check(game))
+        }
 
         return allGames;
-
     }
 
     const clickHandler = () => {
-        setSelected('');
+        setSelectedAZ('');
+        setSale('')
+        setNp('')
         setValue(5000);
         toast.success("All Filters removed");
     }
@@ -62,16 +84,23 @@ const Shop = () => {
 
                 <fieldset className='flex flex-col mt-12 gap-4 ml-8'>
                     <div>
-                        <input type='checkbox' id='az' checked={selected === 'az'} onChange={(e) => setSelected(e.target.id)} className='scale-125'></input>
+                        <input type='checkbox' id='az' checked={selectedAZ === 'az'} onChange={(e) => setSelectedAZ(e.target.id)} className='scale-125'></input>
                         <label htmlFor='az' className='text-xl ml-4'>A to Z</label>
                     </div>
                     <div>
-                        <input type='checkbox' id='za' checked={selected === 'za'} onChange={(e) => setSelected(e.target.id)} className='scale-125'></input>
+                        <input type='checkbox' id='za' checked={selectedAZ === 'za'} onChange={(e) => setSelectedAZ(e.target.id)} className='scale-125'></input>
                         <label htmlFor='za' className='text-xl ml-4'>Z to A</label>
                     </div>
+                </fieldset>
+
+                <fieldset className='flex flex-col mt-6 gap-4 ml-8'>
                     <div>
-                        <input type='checkbox' id='sale' checked={selected === 'sale'} onChange={(e) => setSelected(e.target.id)} className='scale-125 '></input>
+                        <input type='checkbox' id='sale' className='scale-125' onClick={(e) => setSale(!sale)}></input>
                         <label htmlFor='sale' className='text-xl ml-4'>On Sale</label>
+                    </div>
+                    <div>
+                        <input type='checkbox' id='np' className='scale-125' onChange={(e) => setNp(!np)}></input>
+                        <label htmlFor='np' className='text-xl ml-4'>Not Purchased</label>
                     </div>
                 </fieldset>
 

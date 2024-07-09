@@ -6,7 +6,7 @@ import { apiConnector } from "../apiConnector"
 
 export const updateProfilePic = (formData, token) => {
     return async (dispatch) => {
-        const toastId = toast.loading("Loading...")
+        const toastId = toast.loading("Updating...")
         try {
             const response = await apiConnector("PUT", settingsEndpoints.UPDATE_DISPLAY_PICTURE_API, formData, {
                 "Content-Type": "multipart/form-data",
@@ -30,9 +30,9 @@ export const updateProfilePic = (formData, token) => {
     }
 }
 
-export const updateProfile = (token, formData) => {
+export const updateProfile = (token, formData, navigate) => {
     return async (dispatch) => {
-        const toastId = toast.loading("Loading...")
+        const toastId = toast.loading("Updating...")
         try {
             const response = await apiConnector("PUT", settingsEndpoints.UPDATE_PROFILE_API, formData, {
                 Authorization: `${token}`,
@@ -46,6 +46,7 @@ export const updateProfile = (token, formData) => {
             dispatch(setUser(response.data.updatedUserDetails));
 
             toast.success(response.data.message);
+            navigate('/account')
         }
         catch (error) {
             console.log(error);
@@ -57,7 +58,7 @@ export const updateProfile = (token, formData) => {
 }
 
 
-export const changePassword = async (formData, token) => {
+export const changePassword = async (formData, token, navigate) => {
     const toastId = toast.loading("Loading...");
     try {
         const response = await apiConnector("POST", settingsEndpoints.CHANGE_PASSWORD_API, formData, {
@@ -67,13 +68,15 @@ export const changePassword = async (formData, token) => {
         console.log(response);
 
         if (!response.data.success) {
+            toast.error(response.data.message)
             throw new Error(response.data.message)
         }
         toast.success(response.data.message);
+        navigate('/account')
     }
     catch (error) {
         console.log(error);
-        toast.error("Could not update Password")
+        toast.error(error.response.data.message)
     }
     toast.dismiss(toastId);
 }
