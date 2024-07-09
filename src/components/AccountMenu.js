@@ -36,7 +36,7 @@ const AccountMenu = () => {
     return (
         <div className="relative" ref={menuRef}>
             <img
-                src={!token ? "https://img.icons8.com/?size=100&id=15265&format=png&color=FFFFFF" : user.image}
+                src={!token ? "https://img.icons8.com/?size=100&id=15265&format=png&color=FFFFFF" : user?.image}
                 alt="Account"
                 className="w-12 h-12 rounded-full cursor-pointer"
                 onClick={toggleMenu}

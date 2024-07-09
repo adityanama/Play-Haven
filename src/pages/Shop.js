@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Games } from '../GamesData'
 import GameCard from '../components/GameCard';
 import SpecialOffercard from '../components/SpecialOfferCard';
@@ -12,6 +12,9 @@ const Shop = () => {
     const [selectedAZ, setSelectedAZ] = useState('');
     const [sale, setSale] = useState(false)
     const [np, setNp] = useState(false)
+
+    const ref1 = useRef()
+    const ref2 = useRef()
 
     const check = (game) => {
         let flag = false;
@@ -50,8 +53,8 @@ const Shop = () => {
 
     const clickHandler = () => {
         setSelectedAZ('');
-        setSale('')
-        setNp('')
+        ref1.current.checked = false
+        ref2.current.checked = false
         setValue(5000);
         toast.success("All Filters removed");
     }
@@ -84,7 +87,7 @@ const Shop = () => {
 
                 <fieldset className='flex flex-col mt-12 gap-4 ml-8'>
                     <div>
-                        <input type='checkbox' id='az' checked={selectedAZ === 'az'} onChange={(e) => setSelectedAZ(e.target.id)} className='scale-125'></input>
+                        <input  type='checkbox' id='az' checked={selectedAZ === 'az'} onChange={(e) => setSelectedAZ(e.target.id)} className='scale-125'></input>
                         <label htmlFor='az' className='text-xl ml-4'>A to Z</label>
                     </div>
                     <div>
@@ -95,11 +98,11 @@ const Shop = () => {
 
                 <fieldset className='flex flex-col mt-6 gap-4 ml-8'>
                     <div>
-                        <input type='checkbox' id='sale' className='scale-125' onClick={(e) => setSale(!sale)}></input>
+                        <input ref={ref1} type='checkbox' id='sale' className='scale-125' onChange={(e) => setSale(!sale)}></input>
                         <label htmlFor='sale' className='text-xl ml-4'>On Sale</label>
                     </div>
                     <div>
-                        <input type='checkbox' id='np' className='scale-125' onChange={(e) => setNp(!np)}></input>
+                        <input ref={ref2} type='checkbox' id='np' className='scale-125'  onChange={(e) => setNp(!np)}></input>
                         <label htmlFor='np' className='text-xl ml-4'>Not Purchased</label>
                     </div>
                 </fieldset>
