@@ -43,8 +43,8 @@ exports.paymentSuccessEmail = (name, amount, paymentId) => {
             .cta {
                 display: inline-block;
                 padding: 10px 20px;
-                background-color: #FFD60A;
-                color: #000000;
+                background-color: #d0e5ff;
+                color: white;
                 text-decoration: none;
                 border-radius: 5px;
                 font-size: 16px;
@@ -74,6 +74,8 @@ exports.paymentSuccessEmail = (name, amount, paymentId) => {
                 <p>Dear ${name},</p>
                 <p>We have received a payment of <span class='highlight'>₹${amount}</span></p>
                 <p>Your Payment ID is <b>${paymentId}</b></p>
+                <p>Your order has been recieved and will be delivered shortly to your address</p> 
+                <a class="cta" href="https://play-haven.adityanama.online/account">My Account</a>
             </div>
             <div class="support">If you have any questions or need assistance, please feel free to reach out to us at <a
 					href="mailto:info@playhaven.com">info@playhaven.com</a>. We are here to help!</div>

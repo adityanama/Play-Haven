@@ -2,7 +2,7 @@ const { instance } = require("../config/razorpay");
 const User = require("../models/User");
 const mailSender = require("../utils/mailSender");
 const { paymentSuccessEmail } = require("../mail/templates/paymentSuccessEmail")
-const crypto = require("crypto")
+const crypto = require("crypto");
 
 
 exports.capturePayment = async (req, res) => {
@@ -99,7 +99,7 @@ exports.sendPaymentSuccessEmail = async (req, res) => {
 
         await mailSender(
             user.email,
-            `Payment Received`,
+            `Order Successfully Received`,
             paymentSuccessEmail(
                 `${user.firstName} ${user.lastName}`,
                 amount / 100,
