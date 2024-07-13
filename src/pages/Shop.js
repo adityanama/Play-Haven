@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, {useRef, useState } from 'react'
 import { Games } from '../GamesData'
 import GameCard from '../components/GameCard';
 import SpecialOffercard from '../components/SpecialOfferCard';
@@ -131,7 +131,6 @@ const Shop = () => {
             <div className='flex flex-wrap gap-10 items-center ml-16'>
                 {
                     getGames().map((game, idx) => {
-                        console.log(game.discount);
                         if (game.discount) {
                             return <SpecialOffercard key={idx} GameData={game} />
                         } else {
