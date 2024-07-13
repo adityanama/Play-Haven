@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:4000/api/v1"
+const BASE_URL = "https://play-haven-backend.adityanama.online/"
 
 export const endpoints = {
     SENDOTP_API: BASE_URL + "/auth/sendotp",
