@@ -1,9 +1,10 @@
 import React from 'react'
 import './Hero.css'
 import { useNavigate } from 'react-router'
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
-    
+
     const navigate = useNavigate();
     return (
         <div className='relative'>
@@ -15,8 +16,7 @@ const Hero = () => {
 
                 <div className='mt-16 gap-16 flex'>
                     <button className='text-2xl py-3 px-4 bg-[rgba(2,2,100)] rounded-xl hover:bg-[rgb(3,3,44)] duration-100' onClick={() => navigate("/store")}>Shop Now</button>
-                    <button className='text-2xl py-3 px-4 bg-[rgba(2,2,100)] rounded-xl hover:bg-[rgb(3,3,44)] duration-100'><a href='#deals'>View Deals</a></button>
-                    
+                    <a href={'#deals'} className='text-2xl py-3 px-4 bg-[rgba(2,2,100)] rounded-xl hover:bg-[rgb(3,3,44)] duration-100'>View Deals</a>
                 </div>
             </div>
 
