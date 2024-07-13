@@ -1,9 +1,10 @@
-import React, {useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Games } from '../GamesData'
 import GameCard from '../components/GameCard';
 import SpecialOffercard from '../components/SpecialOfferCard';
 import toast from 'react-hot-toast';
 import { useSelector } from 'react-redux';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Shop = () => {
 
@@ -12,6 +13,12 @@ const Shop = () => {
     const [selectedAZ, setSelectedAZ] = useState('');
     const [sale, setSale] = useState(false)
     const [np, setNp] = useState(false)
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+    const navigate = useNavigate();
+
+    const searchValue = queryParams.get('query')
+    console.log(searchValue)
 
     const ref1 = useRef()
     const ref2 = useRef()
@@ -20,11 +27,10 @@ const Shop = () => {
         let flag = false;
         user.games.forEach(element => {
             console.log(element.id, game.id)
-            if(element.id === game.id)
+            if (element.id === game.id)
                 flag = true
         })
 
-        console.log("true => ",game.id)
         return !flag
     }
 
@@ -42,10 +48,14 @@ const Shop = () => {
             allGames.sort((a, b) => b.title.localeCompare(a.title));
 
         if (sale)
-            allGames =  allGames.filter((game) => game.discount > 0)
+            allGames = allGames.filter((game) => game.discount > 0)
 
         if (np) {
             allGames = allGames.filter((game) => check(game))
+        }
+
+        if(searchValue){
+            allGames = allGames.filter((game) => game.title.toLowerCase().includes(searchValue.toLowerCase()))
         }
 
         return allGames;
@@ -53,9 +63,16 @@ const Shop = () => {
 
     const clickHandler = () => {
         setSelectedAZ('');
-        ref1.current.checked = false
-        ref2.current.checked = false
+        setNp(false)
+        setSale(false)
         setValue(5000);
+
+        ref1.current.checked = false
+        if (user)
+            ref2.current.checked = false
+
+        getGames()
+        navigate('/store')
         toast.success("All Filters removed");
     }
 
@@ -87,7 +104,7 @@ const Shop = () => {
 
                 <fieldset className='flex flex-col mt-12 gap-4 ml-8'>
                     <div>
-                        <input  type='checkbox' id='az' checked={selectedAZ === 'az'} onChange={(e) => setSelectedAZ(e.target.id)} className='scale-125'></input>
+                        <input type='checkbox' id='az' checked={selectedAZ === 'az'} onChange={(e) => setSelectedAZ(e.target.id)} className='scale-125'></input>
                         <label htmlFor='az' className='text-xl ml-4'>A to Z</label>
                     </div>
                     <div>
@@ -101,10 +118,12 @@ const Shop = () => {
                         <input ref={ref1} type='checkbox' id='sale' className='scale-125' onChange={(e) => setSale(!sale)}></input>
                         <label htmlFor='sale' className='text-xl ml-4'>On Sale</label>
                     </div>
-                    <div>
-                        <input ref={ref2} type='checkbox' id='np' className='scale-125'  onChange={(e) => setNp(!np)}></input>
-                        <label htmlFor='np' className='text-xl ml-4'>Not Purchased</label>
-                    </div>
+                    {
+                        user && <div>
+                            <input ref={ref2} type='checkbox' id='np' className='scale-125' onChange={(e) => setNp(!np)}></input>
+                            <label htmlFor='np' className='text-xl ml-4'>Not Purchased</label>
+                        </div>
+                    }
                 </fieldset>
 
                 <button className='text-xl py-3 px-4 bg-[#282882] rounded-xl hover:bg-[rgb(26,26,87)] duration-100 block mx-auto mt-10' onClick={clickHandler}>Reset Filters</button>

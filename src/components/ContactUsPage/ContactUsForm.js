@@ -130,7 +130,7 @@ const ContactUsForm = () => {
             </div>
 
             <button type="submit" className="w-full bg-indigo-600 text-white p-3 rounded-lg hover:bg-indigo-800 transition duration-300 mt-2">
-                Send Message
+                Submit
             </button>
         </form>
     )

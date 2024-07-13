@@ -5,7 +5,7 @@ import Categories from '../components/Categories';
 import SpecialOffers from '../components/SpecialOffers';
 import {GameData} from '../GamesData';
 import NewRelease from '../components/NewRelease';
-import Footer from '../components/Footer';
+
 
 const Home = () => {
     return (
@@ -15,7 +15,6 @@ const Home = () => {
             <Categories></Categories>
             <SpecialOffers></SpecialOffers>
             <NewRelease></NewRelease>
-            <Footer></Footer>
         </div>
     )
 }
