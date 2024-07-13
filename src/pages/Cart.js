@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router'
 import GameItem from '../components/GameItem'
 import { buyGame } from '../services/operations/studentFeaturesAPI'
 import { clearCart, getGames } from '../services/operations/cartAPI'
+import { setCartItems } from '../Slices/profileSlice'
 
 
 const Cart = () => {
@@ -25,6 +26,7 @@ const Cart = () => {
         console.log(res)
         setCart(res)
         setLoading(false)
+        return res.length
     }
 
     useEffect(() => {
@@ -43,6 +45,7 @@ const Cart = () => {
     const clearcart = async () => {
         await clearCart(token)
         fetchGames()
+        dispatch(setCartItems(0))
     }
 
     console.log(total)

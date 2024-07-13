@@ -16,6 +16,7 @@ const SignIn = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         dispatch(login(email, password, navigate));
+        setPassword('')
     };
 
     // return 

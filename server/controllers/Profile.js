@@ -5,7 +5,7 @@ const { convertSecondsToDuration } = require("../utils/secToDuration")
 
 exports.updateProfile = async (req, res) => {
     try {
-        const { dateOfBirth, address, contactNumber, gender, firstName, lastName } = req.body;
+        const { dateOfBirth, address, contactNumber, gender = 'Male', firstName, lastName } = req.body;
         const id = req.user.id;
 
         const userDetails = await User.findById(id);
@@ -19,10 +19,10 @@ exports.updateProfile = async (req, res) => {
         profileDetails.contactNumber = contactNumber;
         await profileDetails.save();
 
-        if(firstName)
-            userDetails.firstName = firstName;
-        if(lastName)
-            userDetails.lastName = lastName;
+        userDetails.firstName = firstName;
+        userDetails.lastName = lastName;
+        if (userDetails.image.includes('dicebear'))
+            userDetails.image = `https://api.dicebear.com/5.x/initials/svg?seed=${firstName[0]}${lastName[0]}`
 
         await userDetails.save();
 

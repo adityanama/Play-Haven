@@ -70,13 +70,13 @@ const Account = () => {
                                 />
                                 <p className='text-2xl text-white '>{user.firstName} {user.lastName}</p>
                             </div>
-                            <div className='flex flex-row flex-wrap gap-12 mx-auto w-8/12'>
+                            <div className='flex flex-row flex-wrap gap-9 mx-auto w-8/12'>
                                 <label className='space-y-2'>
                                     <p className='text-xl text-gray-300  font-semibold'>Email</p>
                                     <input
                                         disabled
                                         value={user.email}
-                                        className="w-full p-3 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-indigo-600 text-lg"
+                                        className="w-[260px] p-3 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-indigo-600 text-lg"
                                     />
                                 </label>
                                 <label className='space-y-2'>
@@ -101,11 +101,12 @@ const Account = () => {
                                     <p className='text-xl text-gray-300  font-semibold'>Date of Birth</p>
                                     <input
                                         disabled
+                                        placeholder='set DOB'
                                         value={user.additionalDetails.dateOfBirth}
                                         className="w-[180px] p-3 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-indigo-600 text-lg"  
                                     />
                                 </label>
-                                <label className='space-y-2 mx-16'>
+                                <label className='space-y-2 mx-20'>
                                     <p className='text-xl text-gray-300 font-semibold'>Address</p>
                                     <textarea
                                         disabled

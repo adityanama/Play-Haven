@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, {useRef, useState } from 'react'
 import { Games } from '../GamesData'
 import GameCard from '../components/GameCard';
 import SpecialOffercard from '../components/SpecialOfferCard';

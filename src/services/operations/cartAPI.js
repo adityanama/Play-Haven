@@ -3,7 +3,8 @@ import { apiConnector } from "../apiConnector"
 import { cartEndpoints } from "../apis"
 
 
-export const addToCart = async (game, token, dispatch) => {
+export const addToCart = async (game, token) => {
+    let res = false;
     const toastId = toast.loading("Loading...");
     try {
         const response = await apiConnector("POST", cartEndpoints.ADD_CART_API, { game }, {
@@ -13,11 +14,14 @@ export const addToCart = async (game, token, dispatch) => {
         console.log(response);
 
         toast.success(response.data.message)
+        res =  response.data.success
+        console.log(res)
 
     } catch (error) {
         console.log(error)
     }
     toast.dismiss(toastId)
+    return res
 }
 
 export const removeFromCart = async (token) => {

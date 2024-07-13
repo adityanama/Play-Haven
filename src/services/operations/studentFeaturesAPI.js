@@ -2,6 +2,7 @@ import toast from "react-hot-toast"
 import { apiConnector } from '../apiConnector'
 import { studentEndpoints } from '../apis'
 import { clearCart } from "./cartAPI"
+import { setCartItems } from "../../Slices/profileSlice"
 
 
 const loadScript = (src) => {
@@ -102,6 +103,7 @@ const verifyPayment = async (bodyData, token, navigate, dispatch) => {
         toast.success("Payment Successfull")
         navigate("/")
         clearCart(token)
+        dispatch(setCartItems(0))
     }
     catch (error) {
         console.log(error)

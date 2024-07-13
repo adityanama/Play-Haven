@@ -16,8 +16,7 @@ exports.addToCart = async (req, res) => {
 
 
         if (cart.games.some((val) => val.id === game.id)) {
-            console.log("srgrhrt")
-            return res.status(200).json({ message: "Already in cart" })
+            return res.status(200).json({success:false, message: "Already in cart" })
         }
 
         cart.games.push(game)
@@ -27,7 +26,7 @@ exports.addToCart = async (req, res) => {
     } else {
         const cart = new Cart({ email, games: [game] })
         await cart.save()
-        return res.status(200).json({ message: "Game added to cart" })
+        return res.status(200).json({success:true, message: "Game added to cart" })
     }
 }
 

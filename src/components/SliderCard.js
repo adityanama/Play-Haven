@@ -2,18 +2,25 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router'
 import { addToCart } from '../services/operations/cartAPI';
+import { setCartItems } from '../Slices/profileSlice';
 
 const SliderCard = ({ GameData }) => {
 
     const navigate = useNavigate();
     const dispatch = useDispatch()
     const {token} = useSelector((state) => state.auth)
+    const {cartItems} = useSelector((state) => state.profile)
 
-    const handleAddToCart = () => {
+    const handleAddToCart = async() => {
         if(!token)
             navigate('/account/login')
         else
-        addToCart(GameData, token, dispatch)
+        {
+            const res = await addToCart(GameData, token)
+            console.log(res)
+            if(res)
+                dispatch(setCartItems(cartItems+1))
+        }
     }
     
     return (
