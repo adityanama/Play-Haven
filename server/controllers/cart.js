@@ -41,6 +41,7 @@ exports.removeFromCart = async (req, res) => {
     const index = cart.games.indexOf(game)
     cart.games.splice(index, 1)
     await cart.save()
+    
     return res.status(200).json({
         message: "Game removed from cart", cart: cart.games
     })

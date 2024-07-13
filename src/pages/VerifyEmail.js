@@ -69,7 +69,7 @@ const VerifyEmail = () => {
 
                         <div className="mt-6 flex items-center justify-between">
                             <div>
-                                <Link to={"/signup"}>
+                                <Link to={"/account/signup"}>
                                     <p className="text-white flex items-center gap-x-2">
                                         <BiArrowBack />Back to signUp
                                     </p>
