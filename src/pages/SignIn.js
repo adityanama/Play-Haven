@@ -21,10 +21,12 @@ const SignIn = () => {
 
     // return 
     return (
-        <div className="">
+        <>
             {
                 loading ? (
-                    <div className='spinner min-h-screen grid place-items-center'></div>
+                    <div className='min-h-screen grid place-items-center'>
+                        <div className='spinner'></div>
+                    </div>
                 ) : (
                     <div className="min-h-screen flex items-center justify-center bg-[rgb(2,2,36)] pt-28">
                         <div className="bg-gray-900 p-8 rounded-lg shadow-lg max-w-md w-full">
@@ -82,7 +84,7 @@ const SignIn = () => {
                         </div>
                     </div>
                 )}
-        </div>
+        </>
     );
 
 };

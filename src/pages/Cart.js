@@ -5,6 +5,7 @@ import GameItem from '../components/GameItem'
 import { buyGame } from '../services/operations/studentFeaturesAPI'
 import { clearCart, getGames } from '../services/operations/cartAPI'
 import { setCartItems } from '../Slices/profileSlice'
+import toast from 'react-hot-toast'
 
 
 const Cart = () => {
@@ -14,9 +15,6 @@ const Cart = () => {
     const [cart, setCart] = useState([])
     const [loading, setLoading] = useState(false)
     const [total, setTotal] = useState(0);
-
-
-
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -34,11 +32,15 @@ const Cart = () => {
     }, [])
 
     useEffect(() => {
-        // if(cart.length)
         cart && setTotal(cart.reduce((acc, curr) => acc + curr.price, 0));
     }, [cart])
 
     const handlePurchase = () => {
+        if (!user.address || !user.contactNumber) {
+            toast.error("Please update your profile")
+            navigate('/account/edit')
+            return;
+        }
         buyGame(token, cart, total, user, navigate, dispatch)
     }
 
@@ -51,9 +53,13 @@ const Cart = () => {
     console.log(total)
 
     return (
-        <div className='min-h-screen'>
+        <>
             {
-                loading ? (<div className='spinner grid place-items-center'></div>) : (
+                loading ? (
+                    <div className='min-h-screen grid place-items-center'>
+                        <div className='spinner'></div>
+                    </div>
+                ) : (
                     <div className='min-h-screen'>
                         {
                             cart && cart.length > 0 ?
@@ -100,7 +106,7 @@ const Cart = () => {
                     </div >
                 )
             }
-        </div>
+        </>
     )
 }
 

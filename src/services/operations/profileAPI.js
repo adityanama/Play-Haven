@@ -7,7 +7,6 @@ import { apiConnector } from "../apiConnector";
 
 export const getUserDetails = (token, navigate) => {
     return async (dispatch) => {
-        const toastId = toast.loading("Loading...");
         dispatch(setLoading(true));
 
         try {
@@ -26,8 +25,6 @@ export const getUserDetails = (token, navigate) => {
             dispatch(logout(navigate))
             console.log(error)
         }
-        
-        toast.dismiss(toastId)
         dispatch(setLoading(false))
     }
 }

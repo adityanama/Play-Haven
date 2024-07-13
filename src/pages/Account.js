@@ -112,7 +112,7 @@ const Account = () => {
                                         disabled
                                         placeholder='set address'
                                         value={user.additionalDetails.address}
-                                        className="w-[400px] p-3 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-indigo-600 text-lg"  
+                                        className="min-w-[300px] p-3 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-indigo-600 text-lg"  
                                     />
                                 </label>
                                 <button className="w-[100px] bg-indigo-600 p-2 text-white rounded-lg hover:bg-indigo-800 transition duration-300 text-xl" onClick={() => {navigate("/account/edit")}}>Edit</button>

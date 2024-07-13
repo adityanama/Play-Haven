@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { changePassword, updateProfile } from '../services/operations/SettingsAPI';
 import { useNavigate } from 'react-router';
+import toast from 'react-hot-toast';
 
 const EditAccount = () => {
     const { user, loading } = useSelector((state) => state.profile)
@@ -41,7 +42,10 @@ const EditAccount = () => {
 
     const handleProfileSubmit = async() => {
         try {
-            dispatch(updateProfile(token,formData,navigate));
+            if(!formData.contactNumber || /^[0-9]{10}$/.test(formData.contactNumber))
+                dispatch(updateProfile(token,formData,navigate))
+            else
+                toast.error("Invalid contact number")
         } catch (error) {
             console.log(error);
         }
@@ -124,7 +128,7 @@ const EditAccount = () => {
                         placeholder='set address'
                         name='address'
                         defaultValue={user.additionalDetails.address}
-                        className="w-[350px] p-3 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-indigo-600 text-lg"
+                        className="min-w-[300px] p-3 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-indigo-600 text-lg"
                         onChange={(e) => { setFormData({ ...formData, [e.target.name]: e.target.value }) }}
                         required    
                     />
@@ -141,7 +145,7 @@ const EditAccount = () => {
                 <div className='flex flex-row w-full mx-auto justify-evenly border border-gray-400 p-12'>
                     <div className="mb-4 relative">
                         <label className="block text-gray-200 text-md mb-2" htmlFor="password">
-                            Old Password
+                            Current Password
                         </label>
                         <input
                             className="w-[300px] p-3 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-indigo-600"
