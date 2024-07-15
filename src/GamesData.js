@@ -59,7 +59,7 @@ export const GameData = [
                 title: 'Cricket 24',
                 developer: 'Big Ant Studios',
                 img: 'https://image.api.playstation.com/vulcan/ap/rnd/202309/2212/d7fba97907064aa33d64c140a8f07c2a8e49d5fa36829a5b.png?w=440&thumb=false',
-                description: 'Experience the thrill of cricket like never before with Cricket 24. With realistic gameplay',
+                description: 'Cricket 24 is the culmination of a decade of Cricket video game development and includes teams from every corner of the globe. Players will be able to take on major cricket nations including Australia and England in the official Ashes, West Indies, New Zealand, Ireland and more, plus for the first time ever, professional Indian T20 teams, all set in over 50 detailed official stadiums. Cricket 24 is the most complete video game simulation of cricket seen to date.',
                 price: 1999,
                 discount: 30,
                 specialPrice: 1999,
@@ -67,9 +67,9 @@ export const GameData = [
             {
                 id: 7,
                 title: 'Watch Dogs Legion',
-                developer: 'Big Ant Studios',
+                developer: 'Ubisoft',
                 img: 'https://image.api.playstation.com/vulcan/ap/rnd/202007/0200/ohDfr1TcylLqbwva38ONyLHO.png',
-                description: 'Experience the thrill of cricket like never before with Cricket 24. With realistic gameplay',
+                description: 'Build a resistance from virtually anyone you see as you hack, infiltrate, and fight to take back a near-future London that is facing its downfall. Recruit and play as anyone in the city. Everyone you see has a unique backstory, personality, and skill set. Hack armed drones, deploy spider-bots, and take down enemies using an Augmented Reality Cloak. Explore a massive urban open world featuring London’s many iconic landmarks and fun side activities. Take your recruits online and team up with your friends as you complete missions and challenging endgame content. ',
                 price: 1499,
                 discount: 50,
                 specialPrice: 1499,
@@ -77,9 +77,9 @@ export const GameData = [
             {
                 id: 8,
                 title: `Assassin's Creed Odyssey`,
-                developer: 'Big Ant Studios',
+                developer: 'Ubisoft',
                 img: 'https://image.api.playstation.com/cdn/EP0001/CUSA09303_00/tzKcptCCUkiigpacybO8xWmvxPS7vIzk.png?w=440&thumb=false',
-                description: 'Experience the thrill of cricket like never before with Cricket 24. With realistic gameplay',
+                description: 'Sentenced to death by your family, embark on a journey from outcast mercenary to legendary Greek hero and uncover the truth about your past. Forge your path through a gorgeous world where mountains and sea collide. Meet Ancient Greece’s most famous figures and discover a pivotal point in history that shaped western civilisation. For the first time in the series, choose the hero you want to become and decide the fate of the world around you. Customize your equipment and master new special abilities, tailoring your character’s skillset to your play style. Fight your way across Greece, engaging in visceral battles both on land and sea, to become a legend.',
                 price: 699,
                 discount: 75,
                 specialPrice: 699,
@@ -89,8 +89,8 @@ export const GameData = [
                 title: `Marvel's Spider-Man: Miles Morales`,
                 developer: 'Insomanic Games',
                 img: 'https://image.api.playstation.com/vulcan/ap/rnd/202008/1020/T45iRN1bhiWcJUzST6UFGBvO.png?w=440&thumb=false',
-                description: 'Experience the thrill of cricket like never before with Cricket 24. With realistic gameplay',
-                price: 2299,
+                description: 'In the latest adventure in the Marvel’s Spider-Man universe, teenager Miles Morales is adjusting to his new home while following in the footsteps of his mentor, Peter Parker, as a new Spider-Man. But when a fierce power struggle threatens to destroy his new home, the aspiring hero realizes that with great power, there must also come great responsibility. To save all of Marvel’s New York, Miles must take up the mantle of Spider-Man and own it. ',
+                price : 2299,
                 discount: 15,
                 specialPrice: 2299,
             },
@@ -102,42 +102,50 @@ export const GameData = [
             {
                 id: 10,
                 title: 'WWE 2K24',
-                developer: 'Visual Concepts',
+                developer: '2K',
                 img: 'https://image.api.playstation.com/vulcan/ap/rnd/202401/0902/8ef9ab648b8b46461778764d6942c44a1c485abd7879e7ce.png',
-                description: 'Experience the thrill of cricket like never before with Cricket 24. With realistic gameplay',
-                price: 3999,
+                description: 'oin the biggest superstars in sports entertainment as WWE 2K24 presents a retelling of WrestleMania’s greatest moments from the last 40 years.Take part in some of wrestling’s most unforgettable and career-defining matches, choosing from the likes of “Stone Cold” Steve Austin, Undertaker and Andre the Giant, alongside current contenders “The American Nightmare” Cody Rhodes, John Cena, Rhea Ripley and Roman Reigns.',
+                price : '3499',
                 discount: 0,
             },
             {
                 id: 11,
                 title: 'Ghost of Tsushima DIRECTOR’S CUT',
-                developer: 'Visual Concepts',
+                developer: 'Sucker Punch Productions',
                 img: 'https://image.api.playstation.com/vulcan/ap/rnd/202106/2322/c16gs6a7lbAYzPf7ZTikbH1c.png?w=440&thumb=false',
-                description: 'Experience the thrill of cricket like never before with Cricket 24. With realistic gameplay',
+                description: 'Uncover the hidden wonders of Tsushima in this open-world action adventure from Sucker Punch Productions and PlayStation Studios, available for PS5 and PS4.Forge a new path and wage an unconventional war for the freedom of Tsushima. Challenge opponents with your katana, master the bow to eliminate distant threats, develop stealth tactics to ambush enemies and explore a new story on Iki Island.',
                 price: 2799,
                 discount: 0,
             },
             {
                 id: 12,
                 title: `Assassin's Creed® Mirage`,
-                developer: 'Visual Concepts',
+                developer: 'Ubisoft',
                 img: 'https://image.api.playstation.com/vulcan/ap/rnd/202208/1718/phwiQjbJddEg979YucUoP3Vr.png?w=440&thumb=false',
-                description: 'Experience the thrill of cricket like never before with Cricket 24. With realistic gameplay',
+                description: 'Experience the home of the original Assassins in this exciting new narrative-driven, open world adventure. 15 years since the first Assassins Creed redefined adventure, experience the franchises trademark parkour and stealth like never before - in Assassins Creed Mirage.In this smaller scale, back to basics Assassins caper, you play Basim, a young street thief seeking answers. Roam the richly-detailed, reactive and vibrant streets of 9th century Baghdad, uncovering the mysteries of the past as you fight to secure your future. Stalk the shadows. Become the ultimate assassin.',
                 price: 2499,
                 discount: 0,
             },
             {
                 id: 13,
                 title: 'Tekken 8',
-                developer: 'Visual Concepts',
+                developer: 'BANDAI NAMCO Studios',
                 img: 'https://image.api.playstation.com/vulcan/ap/rnd/202308/0312/aff71a0ced271048f5079b1fcf715bcb45110efc13e9704a.png?w=440&thumb=false',
-                description: 'Experience the thrill of cricket like never before with Cricket 24. With realistic gameplay',
+                description: 'Feel the power of every hit in Tekken 8, the latest entry in the legendary fighting game franchise from Bandai Namco. Utilising the power and realism of Unreal Engine 5.  Ground-breaking new features, breathtakingly detailed character models and dramatic environments make this one of the most visually stunning and immersive titles in the genre yet. Tekken 8 picks up after the gruesome battle that ended in Heihachi Mishima’s defeat in Tekken 7, focusing on a new rivalry, pitting father against son as Jin Kazama stands in defiance against Kazuya Mishima in a city-shattering face-to-face showdown.',
                 price: 2649,
                 discount: 0,
             },
+        ],
 
-        ]
     },
+    {
+        other : [
+            {
+                id : 14,
+                title: '', 
+            },
+        ]
+    }
 ]
 
 export const Games = [];

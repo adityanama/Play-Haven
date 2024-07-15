@@ -1,7 +1,6 @@
 import React from 'react'
 import './Hero.css'
 import { useNavigate } from 'react-router'
-import { Link } from 'react-router-dom';
 
 const Hero = () => {
 
@@ -9,7 +8,7 @@ const Hero = () => {
     return (
         <div className='relative'>
             <img src='https://bgeek.eu/wp-content/uploads/2021/05/ubisoft-plus_hero_mobile.jpg' className='pt-16 opacity-25 mb-24 mx-auto'></img>
-            <div className='text-white absolute top-48 text-7xl left-32'>
+            <div className='    text-white absolute top-48 text-7xl left-32'>
                 <p className='hero-title'>Your Gaming Journey</p>
                 <br></br>
                 <p className='-mt-8 hero-title'>Begins Here!</p>
