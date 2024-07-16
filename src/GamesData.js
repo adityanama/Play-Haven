@@ -1,3 +1,5 @@
+import { shuffleArray } from "./utils/shuffle";
+
 export const GameData = [
     {
         sliderData: [
@@ -90,7 +92,7 @@ export const GameData = [
                 developer: 'Insomanic Games',
                 img: 'https://image.api.playstation.com/vulcan/ap/rnd/202008/1020/T45iRN1bhiWcJUzST6UFGBvO.png?w=440&thumb=false',
                 description: 'In the latest adventure in the Marvel’s Spider-Man universe, teenager Miles Morales is adjusting to his new home while following in the footsteps of his mentor, Peter Parker, as a new Spider-Man. But when a fierce power struggle threatens to destroy his new home, the aspiring hero realizes that with great power, there must also come great responsibility. To save all of Marvel’s New York, Miles must take up the mantle of Spider-Man and own it. ',
-                price : 2299,
+                price: 2299,
                 discount: 15,
                 specialPrice: 2299,
             },
@@ -105,7 +107,7 @@ export const GameData = [
                 developer: '2K',
                 img: 'https://image.api.playstation.com/vulcan/ap/rnd/202401/0902/8ef9ab648b8b46461778764d6942c44a1c485abd7879e7ce.png',
                 description: 'oin the biggest superstars in sports entertainment as WWE 2K24 presents a retelling of WrestleMania’s greatest moments from the last 40 years.Take part in some of wrestling’s most unforgettable and career-defining matches, choosing from the likes of “Stone Cold” Steve Austin, Undertaker and Andre the Giant, alongside current contenders “The American Nightmare” Cody Rhodes, John Cena, Rhea Ripley and Roman Reigns.',
-                price : '3499',
+                price: '3499',
                 discount: 0,
             },
             {
@@ -136,16 +138,77 @@ export const GameData = [
                 discount: 0,
             },
         ],
-
     },
     {
-        other : [
+        other: [
             {
-                id : 14,
-                title: '', 
+                id: 14,
+                title: 'Call of Duty®: Black Ops 6',
+                developer: 'Activision',
+                img: 'https://image.api.playstation.com/vulcan/ap/rnd/202406/1421/5811b9a8ab59c7703c3d4f0a60748c029208aed35f28d7f3.png',
+                description: 'Developed by Treyarch and Raven, Black Ops 6 is a spy action thriller set in the early 90s, a period of transition and upheaval in global politics, characterised by the end of the Cold War and the rise of the United States as a single superpower. With a mind-bending narrative, and unbound by the rules of engagement, this is signature Black Ops across a cinematic single-player Campaign, a best-in-class Multiplayer experience, and with the epic return of Round-Based Zombies.',
+                price: 5499,
+                discount: 0,
             },
+            {
+                id: 15,
+                title: `Assassin's Creed Origins`,
+                developer: 'Ubisoft',
+                img: 'https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA05625_00/3/i_1918d4f78a3ed7521b7936984d525927a03a03e241bdd3d748bfd23c104d45db/i/icon0.png',
+                description: 'Ancient Egypt, a land of majesty and intrigue, is disappearing in a ruthless fight for power. Unveil dark secrets and forgotten myths as you go back to the one founding moment.Sail down the Nile, uncover the mysteries of the pyramids or fight your way against dangerous ancient factions and wild beasts as you explore this gigantic and unpredictable land. The Origins of the Assassin’s Brotherhood.Engage into multiple quests and gripping stories as you cross paths with strong and memorable characters, from the wealthiest high-born to the most desperate outcasts.',
+                price: 3799,
+                discount: 0,
+            },
+            {
+                id: 16,
+                title: 'Watch Dogs 2',
+                developer: 'Ubisoft',
+                img: 'https://image.api.playstation.com/cdn/UP0001/CUSA04459_00/qBxvfDJJ9dbavai6xsWOcWaxRDGRb7h0.png',
+                description: 'Play as Marcus Holloway, a brilliant young hacker living in the birthplace of the tech revolution, the San Francisco Bay Area. Team up with Dedsec, a notorious group of hackers, to execute the biggest hack in history take down ctOS 2.0, an invasive operating system being used by criminal masterminds to monitor and manipulate citizens on a massive scale.Explore the dynamic open-world, full of gameplay possibilities. Hack into every connected device and take control of the city infrastructure. Develop different skills to suit your playstyle, and upgrade your hacker tools – RC cars, Quadcopter drone, 3D printed weapons and much more.',
+                price: 2099,
+                specialPrice: 2099,
+                discount: 25,
+            },
+            {
+                id: 17,
+                title: 'EA SPORTS™ FC 24',
+                developer: 'Electronic Arts',
+                img: 'https://image.api.playstation.com/vulcan/ap/rnd/202406/1122/7a3b10ed3abad7f4f23f7f148e7e48e78e2cc8dc0c541090.png',
+                description: 'EA SPORTS FC™ 24 marks the beginning of the future of football. Built on innovation and authenticity, feel closer to the game in the most true-to-football experience yet with the best players from the biggest clubs, leagues and competitions around the globe.Experience unparalleled realism in every match thanks to three cutting-edge technologies: HyperMotionV, PlayStyles optimised by Opta and the enhanced Frostbite™ Engine.With more than 19,000 fully licensed players, 700 teams and 30 leagues including the UEFA Men’s and Women’s Champions League, EA SPORTS FC 24 brings unrivalled authenticity to the pitch.',
+                price: 4499,
+                discount: 0,
+            },
+            {
+                id: 18,
+                title: 'Cyberpunk 2077',
+                developer: 'CD Projekt',
+                img: 'https://image.api.playstation.com/vulcan/ap/rnd/202202/1517/UyPJCxbE3EoeLtUxjoFBnsD4.png',
+                description: 'Cyberpunk 2077 is an open-world action-adventure from the creators of The Witcher 3: Wild Hunt, CD Projekt Red. Set in Night City, a megalopolis obsessed with power, glamour and body modification, you play as V, a mercenary outlaw going after a one-of-a-kind implant that is the key to immortality. Upgraded with next-gen in mind and featuring free additional content, customize your character and playstyle as you take on jobs, build a reputation, and unlock upgrades.  The relationships you forge and the choices you make will shape the story and the world around you. Legends are made here. What will yours be?',
+                price: 1799,
+                specialPrice: 1799,
+                discount: 35,
+            },
+            {
+                id: 19,
+                title: 'Far Cry 6',
+                developer: 'Ubisoft',
+                img: 'https://image.api.playstation.com/vulcan/img/rnd/202106/1514/xqoTYwf0S55ro6fwcIIY1KI4.png',
+                description: 'Welcome to Yara, a tropical paradise frozen in time. Far Cry 6 immerses players into the adrenaline-filled world of a modern-day guerrilla revolution. Join the revolution and push back against the oppressive regime of dictator Antón Castillo and his teenage son Diego, brought to life by Hollywood stars Giancarlo Esposito (The Mandalorian, Breaking Bad) and Anthony Gonzalez (Coco). Playing as Dani Rojas, immerse yourself in the journey of a military dropout turned guerrilla revolutionary. To even the odds against Antón’s military, you’ll have to adopt the Resolver philosophy, employing an arsenal of unique and surprising new weapons, vehicles and animal companions to ignite a revolutionary movement that will burn the tyrannical regime to the ground',
+                price: 3999,
+                discount: 0,
+            },
+            {
+                id: 20,
+                title: 'The Last of Us Part II Remastered',
+                developer: 'Naughty Dog',
+                img: 'https://image.api.playstation.com/vulcan/ap/rnd/202312/0117/315718bce7eed62e3cf3fb02d61b81ff1782d6b6cf850fa4.png',
+                description: 'Play the winner of over 300 Game of the Year awards, remastered for the PlayStation®5 console. Relive or play for the first time Ellie and Abby’s story, now with graphical enhancements, new gameplay modes like the roguelike survival experience No Return, full DualSense® wireless controller integration, and more. Five years after their dangerous journey across the post-pandemic United States, Ellie and Joel have settled down in Jackson, Wyoming. Living amongst a thriving community of survivors has allowed them peace and stability, despite the constant threat of the infected and other, more desperate survivors. When a violent event disrupts that peace, Ellie embarks on a relentless journey to carry out justice and find closure.',
+                price: 2899,
+                discount: 0,
+            },
+            
         ]
-    }
+    },
 ]
 
 export const Games = [];
@@ -159,3 +222,4 @@ GameData.map((GameObj) => {
     })
 })
 
+shuffleArray(Games);
