@@ -9,7 +9,7 @@ import toast from 'react-hot-toast'
 
 
 const Cart = () => {
-
+    
     const { token } = useSelector((state) => state.auth)
     const { user } = useSelector((state) => state.profile)
     const [cart, setCart] = useState([])
@@ -36,7 +36,7 @@ const Cart = () => {
     }, [cart])
 
     const handlePurchase = () => {
-        if (!user.address || !user.contactNumber) {
+        if (!user.additionalDetails.address || !user.additionalDetails.contactNumber) {
             toast.error("Please update your profile")
             navigate('/account/edit')
             return;
@@ -49,8 +49,6 @@ const Cart = () => {
         fetchGames()
         dispatch(setCartItems(0))
     }
-
-    console.log(total)
 
     return (
         <>
