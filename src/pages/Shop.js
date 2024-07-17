@@ -8,7 +8,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 const Shop = () => {
 
-    const [value, setValue] = useState(5000);
+    const [value, setValue] = useState(6000);
     const { user } = useSelector((state) => state.profile)
     const [selectedAZ, setSelectedAZ] = useState('');
     const [sale, setSale] = useState(false)
@@ -47,8 +47,10 @@ const Shop = () => {
         else if (selectedAZ === 'za')
             allGames.sort((a, b) => b.title.localeCompare(a.title));
 
-        if (sale)
-            allGames = allGames.filter((game) => game.discount > 0)
+        if (sale){
+            allGames = allGames.filter((game) => game.discount > 0);
+            allGames.sort((a,b) => b.discount - a.discount)
+        }
 
         if (np) {
             allGames = allGames.filter((game) => check(game))
@@ -65,7 +67,7 @@ const Shop = () => {
         setSelectedAZ('');
         setNp(false)
         setSale(false)
-        setValue(5000);
+        setValue(6000);
 
         ref1.current.checked = false
         if (user)
@@ -89,7 +91,7 @@ const Shop = () => {
                         type="range"
                         id="slider"
                         min="2000"
-                        max="5000"
+                        max="6000"
                         value={value}
                         onChange={(e) => setValue(e.target.value)}
                         className="w-9/12 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700 mt-8 mx-auto block"
@@ -97,7 +99,7 @@ const Shop = () => {
 
                     <div className='flex justify-between w-9/12 mx-auto mt-2'>
                         <h2>2000</h2>
-                        <h2>5000</h2>
+                        <h2>6000</h2>
                     </div>
 
                 </div>
