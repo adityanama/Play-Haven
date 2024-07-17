@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import SliderCard from './SliderCard'
-import GameData from '../GamesData';
 
 const Slider = ({ GameData }) => {
 

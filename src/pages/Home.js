@@ -10,11 +10,11 @@ import NewRelease from '../components/NewRelease';
 const Home = () => {
     return (
         <div className='mt-16 py-8'>
-            <Hero></Hero>
-            <Slider GameData={GameData}></Slider>
-            <Categories></Categories>
-            <SpecialOffers></SpecialOffers>
-            <NewRelease></NewRelease>
+            <Hero/>
+            <Slider GameData={GameData}/>
+            <Categories/>
+            <SpecialOffers/>
+            <NewRelease/>
         </div>
     )
 }
