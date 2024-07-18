@@ -90,7 +90,7 @@ const Shop = () => {
                     <input
                         type="range"
                         id="slider"
-                        min="2000"
+                        min="1000"
                         max="6000"
                         value={value}
                         onChange={(e) => setValue(e.target.value)}
@@ -98,7 +98,7 @@ const Shop = () => {
                     />
 
                     <div className='flex justify-between w-9/12 mx-auto mt-2'>
-                        <h2>2000</h2>
+                        <h2>1000</h2>
                         <h2>6000</h2>
                     </div>
 
