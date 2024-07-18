@@ -38,6 +38,11 @@ const Shop = () => {
     const getGames = () => {
         let allGames = [...Games];
 
+        if (sale){
+            allGames = allGames.filter((game) => game.discount > 0);
+            allGames.sort((a,b) => b.discount - a.discount)
+        }
+
         if (value < 5000) {
             allGames = allGames.filter(game => game.price <= value);
         }
@@ -46,11 +51,6 @@ const Shop = () => {
             allGames.sort((a, b) => a.title.localeCompare(b.title));
         else if (selectedAZ === 'za')
             allGames.sort((a, b) => b.title.localeCompare(a.title));
-
-        if (sale){
-            allGames = allGames.filter((game) => game.discount > 0);
-            allGames.sort((a,b) => b.discount - a.discount)
-        }
 
         if (np) {
             allGames = allGames.filter((game) => check(game))
