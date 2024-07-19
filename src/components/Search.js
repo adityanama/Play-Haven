@@ -18,7 +18,7 @@ const Search = ({setSearch}) => {
     }
 
     return (
-        <div className='relative w-[490px] h-fit mx-auto z-50 mt-10 -mb-[88px]'>
+        <div className='w-[490px] h-fit z-50 fixed top-10 left-[500px]'>
             <input
                 className='w-full p-3 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-indigo-600'
                 type='text'
