@@ -206,6 +206,42 @@ export const GameData = [
                 price: 2899,
                 discount: 0,
             },
+            {
+                id: 21,
+                title: 'Call of Duty: Modern Warfare III',
+                developer: 'Activision',
+                img: 'https://image.api.playstation.com/vulcan/ap/rnd/202308/1722/15f4ab1e0fe6a37609b164362a653c0e5bcee98a861d0f10.png',
+                description : 'Call of Duty returns with an all-new campaign, modernized versions of classic Multiplayer maps and an open-world PvE Zombies experience. The campaign, a direct sequel to the record-breaking Call of Duty: Modern Warfare II, sees Captain Price and Task Force 141 face off against ultranationalist war criminal Vladimir Makarov as he extends his grasp across the world. In Multiplayer, the 16 maps that launched with Modern Warfare 2 in 2009 return with upgraded graphics, new modes and innovative gameplay features. In Modern Warfare Zombies, team up with other squads for the first time ever as you work together to survive in the largest Zombies map yet.',
+                price : 3099,
+                discount : 0
+            },
+            {
+                id: 22,
+                title: 'Shadow of the Tomb Raider',
+                developer: 'Eidos-Montréal',
+                img: 'https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA10872_00/6/i_bf48f37e880368d90e7d619b254088edb96086a63ce0554a1c227701e6e5f357/i/icon0.png',
+                description : 'Set three years after the events of Rise of the Tomb Raider, its story follows Lara Croft as she ventures through the tropical regions of the Americas to the legendary city Paititi, battling the paramilitary organization Trinity and racing to stop a Mayan apocalypse she has unleashed. Lara must traverse the environment and combat enemies with firearms and stealth as she explores semi-open hubs. In these hubs she can raid challenge tombs to unlock new rewards, complete side missions, and scavenge for resources which can be used to craft useful materials.',
+                price : 1199,
+                discount : 0
+            },
+            {
+                id: 23,
+                title: 'Batman: Arkham Knight',
+                developer: 'Rocksteady Studios',
+                img: 'https://image.api.playstation.com/gs2-sec/acpkgo/prod/CUSA00133_00/374/i_21516ca32977519346e7b5cbf52fcadf722998b0d0a781fbeeea687cd3dca173/i/icon0.png',
+                description : `The game is presented from a third-person perspective, with a primary focus on Batman's melee combat, stealth abilities, detective skills, and gadgets. Batman can freely move around the open world of Gotham City, interacting with characters and undertaking missions. The player is able to complete side missions away from the main story to unlock additional content and collectible items. Combat focuses on chaining attacks together against numerous foes while avoiding damage, while stealth allows Batman to conceal himself around an area, using gadgets and the environment to silently eliminate enemies. Arkham Knight introduces the Batmobile as a playable vehicle, which is used for transportation, puzzle solving and combat. `,
+                price : 499,
+                discount : 0
+            },
+            {
+                id: 24,
+                title: 'Gran Turismo 7',
+                developer: 'Polyphony Digital',
+                img: 'https://image.api.playstation.com/vulcan/ap/rnd/202202/2806/wpHT6JXmOA9iECLZKRPRvt0U.png',
+                description : `Whether you’re a competitive or casual racer, collector, tuner, livery designer or photographer – find your line with a staggering collection of game modes including fan-favourites like GT Campaign, Arcade and Driving School. With the reintroduction of the legendary GT Simulation Mode, buy, tune and race your way through a rewarding solo campaign as you unlock new cars and challenges. And if you love going head-to-head with others, hone your skills and compete in the GT Sport Mode.With over 420 cars available at Brand Central and the Used Car Dealership from day one, Gran Turismo 7 recreates the look and feel of classic motors and bleeding-edge supercars alike in unparalleled detail.`,
+                price : 4999,
+                discount : 0
+            },
             
         ]
     },
