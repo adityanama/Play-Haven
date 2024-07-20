@@ -38,8 +38,7 @@ exports.removeFromCart = async (req, res) => {
     const email = user.email
 
     const cart = await Cart.findOne({ email })
-    const index = cart.games.indexOf(game)
-    cart.games.splice(index, 1)
+    cart.games = cart.games.filter((item) => item.id !== game.id)
     await cart.save()
     
     return res.status(200).json({

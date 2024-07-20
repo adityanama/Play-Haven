@@ -24,10 +24,10 @@ export const addToCart = async (game, token) => {
     return res
 }
 
-export const removeFromCart = async (token) => {
+export const removeFromCart = async (game,token) => {
     const toastId = toast.loading("Loading...");
     try {
-        const response = await apiConnector("POST", cartEndpoints.REMOVE_CART_API, {}, {
+        const response = await apiConnector("POST", cartEndpoints.REMOVE_CART_API, {game}, {
             Authorization: `${token}`
         })
         console.log(response);

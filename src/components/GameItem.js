@@ -12,7 +12,7 @@ const GameItem = ({ game, flag, fetchGames}) => {
     const dispatch = useDispatch();
 
     const handleRemove = async() => {
-        await removeFromCart(token)
+        await removeFromCart(game,token)
         const len = await fetchGames()
         dispatch(setCartItems(len))
     }
